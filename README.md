@@ -20,7 +20,7 @@ A comprehensive word counting and analytics tool designed specifically for autho
 Located in `skills/word-tracker/`, this skill demonstrates how AI can assist with project management and productivity tracking for authors.
 
 ### Draft Management
-The `drafts/` folder contains sample chapter files that demonstrate the word tracker in action with a real manuscript.
+The `drafts/` folder contains sample chapter files from "Moonlight on Maple Hollow," a paranormal romance novel targeting 70,000 words, that demonstrate the word tracker in action with a real manuscript project.
 
 ## Features
 
@@ -72,7 +72,7 @@ See the detailed documentation in `skills/word-tracker/README.md` for complete u
 
 ```
 ffa-skills-project/
-├── drafts/                     # Sample manuscript chapters
+├── drafts/                     # Sample manuscript chapters (Moonlight on Maple Hollow - 70K word target)
 ├── skills/
 │   └── word-tracker/          # Word tracking skill implementation
 │       ├── README.md          # Detailed documentation

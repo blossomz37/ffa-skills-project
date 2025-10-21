@@ -39,7 +39,7 @@ python scripts/word_tracker_standalone.py --drafts drafts
 python -m scripts.wordcount_tracker.cli --drafts drafts --csv tracker.csv
 
 # With options
-python scripts/word_tracker_standalone.py --recursive --report --goal 80000
+python scripts/word_tracker_standalone.py --recursive --report --goal 70000
 ```
 
 ## When to Use This Skill
@@ -282,7 +282,7 @@ word_count:
   exclude_code_blocks: false
 reporting:
   weekly_goal: 5000
-  project_goal: 80000
+  project_goal: 70000
   deadline: 2024-12-31
 ```
 

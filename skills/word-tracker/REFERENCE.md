@@ -177,7 +177,7 @@ print(f"Total words: {summary['total_words']:,}")
 
 # Generate report with goal
 goal = WritingGoal(
-    target_words=80000,
+    target_words=70000,
     deadline="2024-12-31"
 )
 report = generate_progress_report(csv_path, goal, period_days=7)
@@ -237,7 +237,7 @@ word_count:
 goals:
   daily: 1000
   weekly: 5000
-  project: 80000
+  project: 70000
   deadline: 2024-12-31
 
 reporting:
