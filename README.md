@@ -103,6 +103,13 @@ The static promo site for "Moonlight on Maple Hollow" is published with GitHub P
    2) In `docs/index.html`, add an entry to the `chapters` array in `ChaptersViewer` with `title`, `file`, and a short `blurb`.
    3) Commit and push to `main`; the site updates automatically.
 
+#### Word counts in sidebar
+
+- The chapters list shows dynamic word counts sourced from `docs/data/word_count_tracker.csv`.
+- The CSV schema is: `Filename,Word Count,Date Created,Date Updated`.
+- Filenames use the drafts convention (e.g., `chapter-1-homecoming-fog_v1.md`). The UI maps each preview’s file (e.g., `chapter-1-homecoming-fog.md`) to its draft filename by appending `_v1` before `.md`.
+- To update counts, replace `docs/data/word_count_tracker.csv` with an updated export and commit.
+
 ### Preview locally
 
 - Open `docs/index.html` in a browser. It’s a fully static page that loads React, ReactDOM, and Tailwind via CDNs.

@@ -1,4 +1,4 @@
-# Chapter 1 — Homecoming Fog (Preview)
+# Chapter 1 — Homecoming Fog
 
 Mist swallowed the last road sign before Maple Hollow—appropriate for a place that preferred its secrets blurred. Ethan had promised himself he wouldn’t look for the old landmarks, and yet there he was, counting porch pumpkins like mile markers.
 

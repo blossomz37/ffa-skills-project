@@ -30,7 +30,7 @@
     <!-- Markdown rendering and sanitization for chapter previews -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
         
@@ -94,6 +94,9 @@
         .timeline-dot:hover {
             transform: scale(1.3);
         }
+
+        /* Reader spacing fallback if typography plugin isn't present */
+        .chapter-content p { margin-bottom: 1.25em; }
     </style>
 </head>
 <body class="text-amber-50">
@@ -177,13 +180,6 @@
                                 <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Second Chance</span>
                                 <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Slow Burn</span>
                                 <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Found Family</span>
-                            </div>
-                        </div>
-                        
-                        {/* Scroll indicator */}
-                        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                            <div className="w-6 h-10 border-2 border-amber-400 rounded-full flex justify-center">
-                                <div className="w-1 h-3 bg-amber-400 rounded-full mt-2"></div>
                             </div>
                         </div>
                     </div>
@@ -547,6 +543,8 @@
             const [content, setContent] = useState('');
             const [loading, setLoading] = useState(false);
             const [error, setError] = useState('');
+            const [counts, setCounts] = useState({});
+            const [showFull, setShowFull] = useState(false);
 
             const chapters = [
                 { id: 1, title: 'Chapter 1 — Homecoming Fog', file: 'chapter-1-homecoming-fog.md', blurb: 'Ethan returns to Maple Hollow through the mist.' },
@@ -554,17 +552,34 @@
                 // Add more entries here and drop corresponding .md files into /docs/chapters/
             ];
 
+            // Load markdown for the selected chapter
             useEffect(() => {
                 const load = async () => {
                     setLoading(true); setError(''); setContent('');
                     try {
-                        const f = chapters[selected]?.file;
+                        const preview = chapters[selected]?.file;
+                        const draft = draftsFilenameFor(preview);
+                        const f = showFull ? `full/${draft}` : preview;
                         // Build a robust URL that works on GitHub Pages and local servers
                         const base = new URL(window.location.href);
                         const url = new URL(`chapters/${f}`, base);
                         const res = await fetch(url);
                         if (!res.ok) throw new Error(`Failed to load ${f} (${res.status})`);
-                        const md = await res.text();
+                        let md = await res.text();
+                        // Inject version into first heading if possible
+                        const verMatch = draft.match(/_v(\d+)\.md$/);
+                        const ver = verMatch ? `v${verMatch[1]}` : '';
+                        if (ver) {
+                            const injected = md.replace(/^(#\s*.*?Chapter\s+\d+)(\s+—\s+)/m, `$1 ${ver} — `);
+                            if (injected !== md) {
+                                md = injected;
+                            } else {
+                                // If no heading match, prepend one derived from chapters array
+                                const title = chapters[selected]?.title || 'Chapter';
+                                const withVer = title.replace(/(Chapter\s+\d+)/, `$1 ${ver}`);
+                                md = `# ${withVer}\n\n${md}`;
+                            }
+                        }
                         const html = DOMPurify.sanitize(marked.parse(md));
                         setContent(html);
                     } catch (e) {
@@ -578,7 +593,41 @@
                     }
                 };
                 load();
-            }, [selected]);
+            }, [selected, showFull]);
+
+            // Load word counts CSV once
+            useEffect(() => {
+                const loadCounts = async () => {
+                    try {
+                        const base = new URL(window.location.href);
+                        const url = new URL('data/word_count_tracker.csv', base);
+                        const res = await fetch(url);
+                        if (!res.ok) return; // silently ignore
+                        const csv = await res.text();
+                        const lines = csv.trim().split(/\r?\n/);
+                        const header = lines.shift();
+                        const map = {};
+                        for (const line of lines) {
+                            const parts = line.split(',');
+                            const filename = parts[0]?.trim();
+                            const count = parseInt(parts[1]?.trim(), 10);
+                            if (filename && Number.isFinite(count)) {
+                                map[filename] = count;
+                            }
+                        }
+                        setCounts(map);
+                    } catch {}
+                };
+                loadCounts();
+            }, []);
+
+            const draftsFilenameFor = (file) => file.replace(/\.md$/, '_v1.md');
+            const wordsFor = (file) => {
+                const key = draftsFilenameFor(file);
+                const n = counts[key];
+                if (!Number.isFinite(n)) return null;
+                return n.toLocaleString();
+            };
 
             return (
                 <div className="grid md:grid-cols-3 gap-8">
@@ -597,6 +646,7 @@
                                         }`}
                                     >
                                         <p className="font-semibold">{c.title}</p>
+                                        <p className="text-xs italic opacity-80 mt-0.5">{wordsFor(c.file) ? `${wordsFor(c.file)} words` : '—'}</p>
                                         <p className="text-sm opacity-80">{c.blurb}</p>
                                     </button>
                                 </li>
@@ -606,6 +656,15 @@
 
                     {/* Reader */}
                     <div className="md:col-span-2">
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="text-amber-300 text-sm">
+                                <label className="inline-flex items-center gap-2 cursor-pointer select-none">
+                                    <input type="checkbox" checked={showFull} onChange={() => setShowFull(v => !v)} />
+                                    <span>Show full draft</span>
+                                </label>
+                            </div>
+                            <div className="text-amber-400 text-xs italic">Paragraph spacing increased for easier reading</div>
+                        </div>
                         <div className="bg-zinc-900/60 border border-amber-800/30 rounded-lg p-6 min-h-[24rem]">
                             {loading && (
                                 <p className="text-amber-300">Loading preview…</p>
@@ -614,12 +673,12 @@
                                 <p className="text-red-300">{error}</p>
                             )}
                             {!loading && !error && (
-                                <article className="prose prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
+                                <article className="chapter-content prose prose-invert max-w-none prose-p:mb-6" dangerouslySetInnerHTML={{ __html: content }} />
                             )}
                         </div>
                         <div className="mt-4 text-right">
                             <a
-                                href={`chapters/${chapters[selected]?.file}`}
+                                href={`chapters/${showFull ? 'full/' + draftsFilenameFor(chapters[selected]?.file) : chapters[selected]?.file}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-amber-300 hover:text-amber-100 underline"

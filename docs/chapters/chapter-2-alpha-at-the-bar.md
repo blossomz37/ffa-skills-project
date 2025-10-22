@@ -1,4 +1,4 @@
-# Chapter 2 — Alpha at the Bar (Preview)
+# Chapter 2 — Alpha at the Bar
 
 The Wildwood’s sign creaked like a familiar greeting. Inside, strings of lanterns washed the bottles in amber, all soft edges and generous light. Ethan kept his notebook closed. This wasn’t that kind of interview.
 
