@@ -168,6 +168,41 @@
             pointer-events: none;
             z-index: -1;
         }
+        
+        /* Background images for tab sections */
+        .bg-image-1 {
+            position: relative;
+        }
+        
+        .bg-image-1::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/moonlight-on-maple-hollow-4.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .bg-image-2 {
+            position: relative;
+        }
+        
+        .bg-image-2::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/moonlight-on-maple-hollow-3.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
@@ -340,35 +375,70 @@
                     {/* Home Section (previously above the navbar) */}
                     {activeTab === 'home' && (
                         <div className="relative h-screen flex items-center justify-center overflow-hidden">
+                            <div className="absolute inset-0" style={{
+                                backgroundImage: 'url(https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/moonlight-on-maple-hollow-7.png)',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                                filter: 'blur(2px)'
+                            }}></div>
                             <div className="absolute inset-0 fog-effect"></div>
-                            {/* Decorative Moon */}
-                            <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-[var(--golden-glow)] to-[var(--honey-amber)] moon-glow opacity-80"></div>
-                            <div className="relative z-10 text-center px-6 fade-in">
-                                {/* Book Cover Placeholder - ADD YOUR IMAGE URL HERE */}
-                                <div className="mb-8 flex justify-center">
-                                    <div className="w-64 h-96 bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
-                                        <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maple-hollow-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
+                            <div className="relative z-10 px-6 fade-in max-w-6xl mx-auto w-full">
+                                {/* Mobile: centered layout */}
+                                <div className="flex flex-col items-center text-center md:hidden">
+                                    {/* Book Cover */}
+                                    <div className="mb-8">
+                                        <div className="w-64 h-96 bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
+                                            <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maple-hollow-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
+                                        </div>
+                                    </div>
+                                    {/* Text Content */}
+                                    <h1 className="heading-font text-7xl font-bold mb-6 text-amber-100" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Moonlight on Maple Hollow</h1>
+                                    <p className="text-2xl text-amber-200 mb-4 italic" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>A Paranormal Romance</p>
+                                    <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
+                                        When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
+                                    </p>
+                                    <div className="flex gap-4 justify-center flex-wrap text-sm">
+                                        <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🐺 Werewolf Romance</span>
+                                        <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🌙 Harvest Moon Magic</span>
+                                        <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">✨ Shifter Pack</span>
+                                        <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🔮 Small Town Magic</span>
+                                        <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">💫 Second Chance</span>
                                     </div>
                                 </div>
-                                <h1 className="heading-font text-7xl md:text-8xl font-bold mb-6 text-amber-100">Moonlight on Maple Hollow</h1>
-                                <p className="text-2xl md:text-3xl text-amber-200 mb-4 italic">A Paranormal Romance</p>
-                                                            <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8">
-                                When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
-                            </p>
-                            <div className="flex gap-4 justify-center flex-wrap text-sm">
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🐺 Werewolf Romance</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🌙 Harvest Moon Magic</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">✨ Shifter Pack</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🔮 Small Town Magic</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">💫 Second Chance</span>
-                            </div>
+                                
+                                {/* Desktop: two-column layout */}
+                                <div className="hidden md:grid md:grid-cols-2 md:gap-16 md:items-center">
+                                    {/* Left: Book Cover */}
+                                    <div className="flex justify-center">
+                                        <div className="w-80 h-[480px] bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
+                                            <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maple-hollow-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Right: Text Content */}
+                                    <div className="text-left">
+                                        <h1 className="heading-font text-6xl lg:text-7xl font-bold mb-6 text-amber-100" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Moonlight on Maple Hollow</h1>
+                                        <p className="text-3xl lg:text-4xl text-amber-200 mb-8 italic" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>A Paranormal Romance</p>
+                                        <p className="text-xl lg:text-2xl text-amber-300 leading-relaxed mb-8" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
+                                            When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
+                                        </p>
+                                        <div className="flex gap-4 flex-wrap text-sm">
+                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🐺 Werewolf Romance</span>
+                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🌙 Harvest Moon Magic</span>
+                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">✨ Shifter Pack</span>
+                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🔮 Small Town Magic</span>
+                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">💫 Second Chance</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )}
                     
                     {/* Story Section */}
                     {activeTab === 'story' && (
-                        <div className="max-w-6xl mx-auto px-6 py-20">
+                        <div className="max-w-6xl mx-auto px-6 py-20 bg-image-1">
                             <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
                                 The Story
                             </h2>
@@ -426,7 +496,7 @@
                     
                     {/* Supernatural Section */}
                     {activeTab === 'supernatural' && (
-                        <div className="max-w-6xl mx-auto px-6 py-20">
+                        <div className="max-w-6xl mx-auto px-6 py-20 bg-image-2">
                             <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
                                 The Supernatural World
                             </h2>
@@ -589,7 +659,7 @@
                     
                     {/* Characters Section */}
                     {activeTab === 'characters' && (
-                        <div className="max-w-6xl mx-auto px-6 py-20">
+                        <div className="max-w-6xl mx-auto px-6 py-20 bg-image-1">
                             <h2 className="heading-font text-5xl font-bold text-amber-100 mb-12 text-center">
                                 Meet the Characters
                             </h2>
@@ -704,7 +774,7 @@
 
                     {/* Chapters Section */}
                     {activeTab === 'chapters' && (
-                        <div className="max-w-6xl mx-auto px-6 py-20">
+                        <div className="max-w-6xl mx-auto px-6 py-20 bg-image-2">
                             <h2 className="heading-font text-5xl font-bold text-amber-100 mb-4 text-center">
                                 Chapter Teasers
                             </h2>
@@ -786,7 +856,7 @@
                     
                     {/* Themes Section */}
                     {activeTab === 'themes' && (
-                        <div className="max-w-6xl mx-auto px-6 py-20">
+                        <div className="max-w-6xl mx-auto px-6 py-20 bg-image-1">
                             <h2 className="heading-font text-5xl font-bold text-amber-100 mb-12 text-center">
                                 Themes & Atmosphere
                             </h2>
