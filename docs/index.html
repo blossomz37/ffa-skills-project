@@ -244,7 +244,7 @@
         };
 
         const MoonlightPromo = () => {
-            const tabs = ['home', 'story', 'supernatural', 'characters', 'journey', 'themes'];
+            const tabs = ['home', 'story', 'supernatural', 'characters', 'journey', 'themes', 'academy'];
             const initialTab = (() => {
                 try {
                     const h = window.location.hash ? window.location.hash.slice(1) : '';
@@ -328,7 +328,8 @@
                                     { key: 'supernatural', label: 'Supernatural', icon: '🌙' },
                                     { key: 'characters', label: 'Characters', icon: '👥' },
                                     { key: 'journey', label: 'Journey', icon: '🗺️' },
-                                    { key: 'themes', label: 'Themes', icon: '✨' }
+                                    { key: 'themes', label: 'Themes', icon: '✨' },
+                                    { key: 'academy', label: 'Academy', icon: '🎓' }
                                 ].map(tab => (
                                     <button
                                         key={tab.key}
@@ -875,6 +876,108 @@
                                         "This book feels like coming home while holding someone's hand in the dark."
                                     </p>
                                 </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* Academy Section */}
+                    {activeTab === 'academy' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20 bg-image-1 pt-32">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
+                                Future Fiction Academy
+                            </h2>
+                            
+                            <div className="grid md:grid-cols-2 gap-8 mb-8">
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        🚀 Project Showcase
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed mb-4">
+                                        This website showcases the AI output from a presentation by <strong>Carlo V. Santiago</strong> for Future Fiction Academy. 
+                                        The full project files are available at <a href="https://github.com/blossomz37/ffa-skills-project" className="text-amber-300 hover:text-amber-200 underline" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                                    </p>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        The goal was to leverage Claude's capabilities (MCP and Skills) to write chapters that meet target word counts, 
+                                        enabling independent iteration until goals were achieved.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        🛠️ The Word-Tracker Skill
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed mb-4">
+                                        We created a custom Skill called <code className="bg-amber-900/30 px-2 py-1 rounded text-amber-300">word-tracker</code> that Claude could use to count and track words, 
+                                        providing the data points needed to plan and meet word count goals.
+                                    </p>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        While the goal wasn't prose quality (editing is clearly needed!), this exercise serves as a starting point 
+                                        for exploring other Skills and MCPs for AI-assisted creative writing.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay mb-8">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4 text-center">
+                                    🎨 Built with Claude's Skills
+                                </h3>
+                                <p className="text-amber-100/90 leading-relaxed text-center">
+                                    We also used Claude's other built-in Skills to create the branding and design for this website, 
+                                    demonstrating the full creative potential of AI-assisted authoring workflows.
+                                </p>
+                            </div>
+                            
+                            <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 p-8 rounded-lg border border-amber-600/40 text-center">
+                                <h3 className="heading-font text-4xl font-semibold text-amber-200 mb-6">
+                                    About Future Fiction Academy
+                                </h3>
+                                <p className="text-amber-100/90 leading-relaxed mb-6 max-w-4xl mx-auto">
+                                    This project was created by <strong>Carlo V. Santiago</strong> for the Future Fiction Academy, 
+                                    an organization dedicated to helping indie authors and publishers navigate the evolving landscape 
+                                    of digital publishing and AI-assisted writing.
+                                </p>
+                                
+                                <div className="grid md:grid-cols-3 gap-4 text-center">
+                                    <a href="https://futurefictionacademy.com/" 
+                                       className="block bg-amber-900/30 hover:bg-amber-900/50 p-4 rounded-lg border border-amber-700/30 transition-colors" 
+                                       target="_blank" rel="noopener noreferrer">
+                                        <div className="mb-4 flex justify-center">
+                                            <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/FFA-Logo.png" 
+                                                 alt="Future Fiction Academy Logo" 
+                                                 className="h-12 object-contain" />
+                                        </div>
+                                        <h4 className="font-semibold text-amber-300 mb-2">📚 Future Fiction Academy</h4>
+                                        <p className="text-amber-100/80 text-sm">Empowers authors to harness AI for storytelling by providing knowledge, tools, and community</p>
+                                    </a>
+                                    
+                                    <a href="https://futurefictionpress.com/" 
+                                       className="block bg-amber-900/30 hover:bg-amber-900/50 p-4 rounded-lg border border-amber-700/30 transition-colors" 
+                                       target="_blank" rel="noopener noreferrer">
+                                        <div className="mb-4 flex justify-center">
+                                            <img src="https://futurefictionpress.com/wp-content/uploads/2024/07/FFP-Logo-Horizontal-scaled.jpg" 
+                                                 alt="Future Fiction Press Logo" 
+                                                 className="h-12 object-contain" />
+                                        </div>
+                                        <h4 className="font-semibold text-amber-300 mb-2">📖 Fresh Reads</h4>
+                                        <p className="text-amber-100/80 text-sm">Titles focus on popular genres, leveraging AI for efficient storytelling and marketing</p>
+                                    </a>
+                                    
+                                    <a href="https://www.yourfirstdraft.ai" 
+                                       className="block bg-amber-900/30 hover:bg-amber-900/50 p-4 rounded-lg border border-amber-700/30 transition-colors" 
+                                       target="_blank" rel="noopener noreferrer">
+                                        <div className="mb-4 flex justify-center">
+                                            <img src="https://yourfirstdraft.ai/assets/images/Chameleon-opt.png" 
+                                                 alt="YourFirstDraft.ai Logo" 
+                                                 className="h-12 object-contain" />
+                                        </div>
+                                        <h4 className="font-semibold text-amber-300 mb-2">✍️ YourFirstDraft.ai</h4>
+                                        <p className="text-amber-100/80 text-sm">Beta access - a complete writing ecosystem that transforms story concepts into nearly publishable works.</p>
+                                    </a>
+                                </div>
+                                
+                                <p className="text-amber-300 mt-6 italic">
+                                    Visit our websites to discover more resources, tutorials, and tools designed specifically for the indie publishing community.
+                                </p>
                             </div>
                         </div>
                     )}

@@ -149,15 +149,6 @@ We welcome contributions from the indie author and publisher community! Whether 
 3. Make your changes
 4. Submit a pull request
 
-## Future Development
-
-Planned enhancements include:
-
-- Additional writing analysis tools
-- Integration with popular writing software
-- Enhanced analytics and reporting
-- Community-driven skill marketplace
-- Publishing workflow automation
 
 ## About Future Fiction Academy
 
