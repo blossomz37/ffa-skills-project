@@ -1,9 +1,5 @@
 # Chapter 2 — Alpha at the Bar
 
-The Wildwood’s sign creaked like a familiar greeting. Inside, strings of lanterns washed the bottles in amber, all soft edges and generous light. Ethan kept his notebook closed. This wasn’t that kind of interview.
-
-Caleb was taller than memory. Broader, too, the kind of steadiness you felt before you saw. When their eyes met, Ethan swore he could hear every word he’d never said, unspooling between them like a promise he wasn’t ready to touch.
-
-> “He’d been a good Alpha with a particular kind of tension underneath everything.”
+From behind the warm oak of the Wildwood Tavern, **Alpha Caleb Hawthorne** keeps his town steady. He’s a man built of patience and quiet duty, his control as smooth as the whiskey he pours. But with news of Ethan’s return settling in his bones, the calm is cracking, and the approaching **Harvest Moon** warns that even the most disciplined heart has **secrets** it can no longer contain.
 
 [Return to chapter list](../index.html)

@@ -1,11 +1,5 @@
 # Chapter 1 — Homecoming Fog
 
-Mist swallowed the last road sign before Maple Hollow—appropriate for a place that preferred its secrets blurred. Ethan had promised himself he wouldn’t look for the old landmarks, and yet there he was, counting porch pumpkins like mile markers.
-
-The town felt the same and different, like a song played in a lower key. Runes still glimmered on doorframes, tucked between welcome signs and wreaths of dried cinnamon. Every breath tasted of woodsmoke and memory.
-
-He told himself he was here for a story. He didn’t say out loud whose name had been the headline in his head ever since the assignment hit his inbox.
-
-> “Magic, to Maple Hollow, wasn’t mystic or even particularly special—just another local industry, like maple syrup or gossip.”
+Twelve years is a long time to run from a town that remembers your coffee order and your first heartbreak. When journalist **Ethan Cole** returns to the misty streets of Maple Hollow, he’s armed with a recorder and a professional mission. But as the fog curls around familiar corners, it whispers of things he can’t document: **a love he never forgot**, and a low, **distant howl** that promises he was never truly gone.
 
 [Return to chapter list](../index.html)
