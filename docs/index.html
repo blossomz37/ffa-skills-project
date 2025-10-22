@@ -462,10 +462,10 @@
                     {activeTab === 'chapters' && (
                         <div className="max-w-6xl mx-auto px-6 py-20">
                             <h2 className="heading-font text-5xl font-bold text-amber-100 mb-4 text-center">
-                                Chapter Previews
+                                Chapter Teasers
                             </h2>
                             <p className="text-amber-300 text-center mb-10">
-                                Version 1: Claude MCP & Skills Exercise. 
+                                Teasers are shown by default. Use “Show full draft” to open v1 chapters.
                             </p>
 
                             {/* Chapters List + Reader */}
@@ -667,7 +667,7 @@
                 return () => window.removeEventListener('chapters:select', handler);
             }, [chapters.length]);
 
-            // Load markdown for the selected chapter
+            
             useEffect(() => {
                 const load = async () => {
                     setLoading(true); setError(''); setContentFull(''); setContentPreview(''); setFallbackNote(''); setCurrentPath('');
@@ -842,7 +842,7 @@
                                 </button>
                             </div>
                         )}
-                        <div className="mt-4 flex items-center justify-between">
+                        <div className="mt-4 flex items-center justify-start">
                             <button
                                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                 className="px-4 py-2 rounded bg-amber-700 text-white hover:bg-amber-600 transition"
@@ -850,14 +850,6 @@
                             >
                                 Back to top
                             </button>
-                            <a
-                                href={`chapters/${currentPath || (showFull ? 'full/' + draftsFilenameFor(chapters[selected]?.file) : chapters[selected]?.file)}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-amber-300 hover:text-amber-100 underline"
-                            >
-                                Open raw markdown
-                            </a>
                         </div>
                     </div>
                 </div>
