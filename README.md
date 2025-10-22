@@ -82,6 +82,31 @@ ffa-skills-project/
 └── README.md                 # This file
 ```
 
+## Live promo page
+
+The static promo site for "Moonlight on Maple Hollow" is published with GitHub Pages:
+
+- Live URL: https://blossomz37.github.io/ffa-skills-project/
+
+### Source of truth
+
+- Edit the page at `docs/index.html` (this is the canonical file used by GitHub Pages).
+- GitHub Pages is configured to deploy from the `main` branch, folder `/docs`.
+
+### Preview locally
+
+- Open `docs/index.html` in a browser. It’s a fully static page that loads React, ReactDOM, and Tailwind via CDNs.
+
+### Updating the site
+
+- Commit and push changes to `docs/index.html` on `main`; Pages will auto-redeploy within 1–2 minutes.
+
+### Optional: Custom domain
+
+- Add your domain in GitHub: Settings → Pages → Custom domain.
+- Create a DNS CNAME record pointing to `blossomz37.github.io`.
+- Add a `docs/CNAME` file containing your domain to persist it in the repo.
+
 ## For Indie Authors and Publishers
 
 This project addresses common challenges faced by indie authors:

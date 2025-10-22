@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonlight on Maple Hollow - A Paranormal Romance</title>
+    
+    <!-- 
+    ==========================================
+    IMAGE PLACEHOLDERS - ADD YOUR URLS HERE:
+    ==========================================
+    
+    Search for these comments to add your images:
+    
+    1. "Book Cover Placeholder" - Line ~95
+       Replace placeholder div with: <img src="YOUR_BOOK_COVER_URL" ... />
+    
+    2. "Ethan Image Placeholder" - Line ~280
+       Replace placeholder div with: <img src="YOUR_ETHAN_IMAGE_URL" ... />
+    
+    3. "Caleb Image Placeholder" - Line ~310
+       Replace placeholder div with: <img src="YOUR_CALEB_IMAGE_URL" ... />
+    
+    ==========================================
+    -->
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(180deg, #1a1410 0%, #2d1810 50%, #1a1410 100%);
+        }
+        
+        .heading-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .fog-effect {
+            background: linear-gradient(180deg, 
+                rgba(255,255,255,0.03) 0%, 
+                rgba(255,255,255,0.08) 50%, 
+                rgba(255,255,255,0.03) 100%);
+            animation: fogDrift 20s ease-in-out infinite;
+        }
+        
+        @keyframes fogDrift {
+            0%, 100% { opacity: 0.3; transform: translateX(0); }
+            50% { opacity: 0.6; transform: translateX(20px); }
+        }
+        
+        @keyframes moonGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 200, 100, 0.4); }
+            50% { box-shadow: 0 0 80px rgba(255, 200, 100, 0.6); }
+        }
+        
+        .moon-glow {
+            animation: moonGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .autumn-gradient {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 50%, #92400e 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .timeline-dot {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-dot:hover {
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body class="text-amber-50">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        const MoonlightPromo = () => {
+            const [activeTab, setActiveTab] = useState('story');
+            const [hoveredChapter, setHoveredChapter] = useState(null);
+            const [selectedQuote, setSelectedQuote] = useState(0);
+            
+            const quotes = [
+                {
+                    text: "Mist swallowed the last road sign before Maple Hollow—appropriate for a place that preferred its secrets blurred.",
+                    chapter: "Chapter 1"
+                },
+                {
+                    text: "Magic, to Maple Hollow, wasn't mystic or even particularly special—just another local industry, like maple syrup or gossip.",
+                    chapter: "Chapter 1"
+                },
+                {
+                    text: "The name rose like a moon in his chest—bright, inevitable, and completely unwelcome.",
+                    chapter: "Chapter 2"
+                },
+                {
+                    text: "He'd been a good Alpha with a particular kind of tension underneath everything.",
+                    chapter: "Chapter 2"
+                }
+            ];
+            
+            const journeyPoints = [
+                { chapter: 1, title: "Homecoming Fog", emotion: "Returning to haunted memories", color: "bg-slate-600" },
+                { chapter: 2, title: "Alpha at the Bar", emotion: "Old wounds resurface", color: "bg-amber-700" },
+                { chapter: 3, title: "Lanterns and Laughter", emotion: "Festival magic begins", color: "bg-orange-600" },
+                { chapter: 5, title: "Welcome, Maple Hollow", emotion: "Community embrace", color: "bg-yellow-700" },
+                { chapter: 7, title: "The Interview", emotion: "Professional masks slip", color: "bg-amber-600" },
+                { chapter: 9, title: "Shelter and Sparks", emotion: "Storm forces closeness", color: "bg-orange-700" },
+                { chapter: 10, title: "Words on Fire", emotion: "Truths ignite", color: "bg-red-800" },
+                { chapter: 12, title: "Flour and Firelight", emotion: "Domestic intimacy", color: "bg-amber-500" },
+                { chapter: 13, title: "Morning After the Moon", emotion: "New beginnings", color: "bg-yellow-600" }
+            ];
+            
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setSelectedQuote(prev => (prev + 1) % quotes.length);
+                }, 6000);
+                return () => clearInterval(interval);
+            }, []);
+            
+            return (
+                <div className="min-h-screen">
+                    {/* Hero Section */}
+                    <div className="relative h-screen flex items-center justify-center overflow-hidden">
+                        <div className="absolute inset-0 fog-effect"></div>
+                        
+                        {/* Decorative Moon */}
+                        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-amber-200 to-orange-300 moon-glow opacity-80"></div>
+                        
+                        <div className="relative z-10 text-center px-6 fade-in">
+                            {/* Book Cover Placeholder - ADD YOUR IMAGE URL HERE */}
+                            <div className="mb-8 flex justify-center">
+                                <div className="w-64 h-96 bg-gradient-to-br from-amber-900/60 to-orange-900/60 rounded-lg border-2 border-amber-600 shadow-2xl overflow-hidden flex items-center justify-center">
+                                    <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maplewood-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
+                                </div>
+                            </div>
+                            
+                            <h1 className="heading-font text-7xl md:text-8xl font-bold mb-6 text-amber-100">
+                                Moonlight on Maple Hollow
+                            </h1>
+                            <p className="text-2xl md:text-3xl text-amber-200 mb-4 italic">
+                                A Paranormal Romance
+                            </p>
+                            <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8">
+                                When a skeptical journalist returns to his haunted hometown, he rekindles a forbidden bond with the local Alpha—and discovers that some loves are worth the risk of being seen.
+                            </p>
+                            <div className="flex gap-4 justify-center flex-wrap text-sm">
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Small Town</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Shifter Romance</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Second Chance</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Slow Burn</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Found Family</span>
+                            </div>
+                        </div>
+                        
+                        {/* Scroll indicator */}
+                        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                            <div className="w-6 h-10 border-2 border-amber-400 rounded-full flex justify-center">
+                                <div className="w-1 h-3 bg-amber-400 rounded-full mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Navigation Tabs */}
+                    <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
+                        <div className="max-w-6xl mx-auto px-6 py-4">
+                            <div className="flex gap-6 justify-center flex-wrap">
+                                {['story', 'characters', 'journey', 'themes'].map(tab => (
+                                    <button
+                                        key={tab}
+                                        onClick={() => setActiveTab(tab)}
+                                        className={`px-6 py-2 rounded-lg transition-all ${
+                                            activeTab === tab 
+                                                ? 'bg-amber-700 text-white' 
+                                                : 'text-amber-300 hover:text-amber-100 hover:bg-amber-900/30'
+                                        }`}
+                                    >
+                                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Story Section */}
+                    {activeTab === 'story' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
+                                The Story
+                            </h2>
+                            
+                            <div className="grid md:grid-cols-2 gap-12 mb-16">
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        The Setting
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed mb-4">
+                                        Maple Hollow is a misty Appalachian town where October lingers in perpetual twilight. Here, folklore and reality blur, pumpkins line every porch, and the full moon holds more power than most outsiders realize.
+                                    </p>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        This is a place where magic isn't mystical—it's as natural as maple syrup. Where the barber moonlights as a bear, and protection runes are carved into doorframes alongside welcome signs.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        The Romance
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed mb-4">
+                                        Twelve years ago, Ethan Cole fled Maple Hollow—and the boy who broke his heart. Now he's back as a journalist covering the Harvest Moon Festival, determined to keep his distance.
+                                    </p>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        But Caleb Hawthorne, now the town's Alpha and keeper of secrets, has been waiting. Between them lies a past that needs healing, a present crackling with tension, and a future that depends on whether they can trust each other again.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {/* Rotating Quotes */}
+                            <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 p-12 rounded-lg border border-amber-600/40 text-center">
+                                <div className="max-w-3xl mx-auto">
+                                    <p className="heading-font text-3xl italic text-amber-100 mb-4 min-h-24 flex items-center justify-center">
+                                        "{quotes[selectedQuote].text}"
+                                    </p>
+                                    <p className="text-amber-300 text-sm">
+                                        — {quotes[selectedQuote].chapter}
+                                    </p>
+                                </div>
+                                <div className="flex gap-2 justify-center mt-6">
+                                    {quotes.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setSelectedQuote(idx)}
+                                            className={`w-2 h-2 rounded-full transition-all ${
+                                                selectedQuote === idx ? 'bg-amber-400 w-8' : 'bg-amber-700'
+                                            }`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* Characters Section */}
+                    {activeTab === 'characters' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-12 text-center">
+                                Meet the Characters
+                            </h2>
+                            
+                            <div className="grid md:grid-cols-2 gap-8 mb-16">
+                                {/* Ethan Card */}
+                                <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-slate-600 card-hover">
+                                    <div className="flex items-center mb-6">
+                                        {/* Ethan Image Placeholder - ADD YOUR IMAGE URL HERE */}
+                                        <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-amber-600 flex-shrink-0">
+                                            <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/mc-1-ethan-v2.png" alt="Ethan Cole" className="w-full h-full object-cover object-center scale-110" />
+                                        </div>
+                                        <div className="ml-4">
+                                            <h3 className="heading-font text-3xl font-bold text-amber-100">Ethan Cole</h3>
+                                            <p className="text-amber-300 italic">The Skeptical Journalist</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="space-y-4 text-amber-100/90">
+                                        <p>
+                                            <span className="font-semibold text-amber-300">Age:</span> 30 | 
+                                            <span className="font-semibold text-amber-300 ml-2">Profession:</span> Investigative Journalist
+                                        </p>
+                                        <p className="leading-relaxed">
+                                            Lean and sharp-featured with wind-tousled dark curls, Ethan carries the weight of old wounds behind witty observations. He left Maple Hollow at eighteen, fleeing grief and heartbreak, and built a career exposing truth in the city.
+                                        </p>
+                                        <p className="leading-relaxed">
+                                            Now burnout and loneliness have brought him home for what should be a simple assignment. But facing Caleb—and the supernatural world he once knew—proves anything but simple.
+                                        </p>
+                                        <div className="pt-4 border-t border-slate-700">
+                                            <p className="text-sm italic text-amber-300">
+                                                "Curious, emotionally cautious, hides vulnerability behind humor"
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {/* Caleb Card */}
+                                <div className="bg-gradient-to-br from-amber-900 to-orange-900 p-8 rounded-lg border border-amber-700 card-hover">
+                                    <div className="flex items-center mb-6">
+                                        {/* Caleb Image Placeholder - ADD YOUR IMAGE URL HERE */}
+                                        <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-amber-400 flex-shrink-0">
+                                            <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/mc-2-caleb-2.png" alt="Caleb Hawthorne" className="w-full h-full object-cover object-center scale-125" />
+                                        </div>
+                                        <div className="ml-4">
+                                            <h3 className="heading-font text-3xl font-bold text-amber-50">Caleb Hawthorne</h3>
+                                            <p className="text-amber-200 italic">The Patient Alpha</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="space-y-4 text-amber-50/90">
+                                        <p>
+                                            <span className="font-semibold text-amber-200">Age:</span> 32 | 
+                                            <span className="font-semibold text-amber-200 ml-2">Role:</span> Pack Alpha & Tavern Owner
+                                        </p>
+                                        <p className="leading-relaxed">
+                                            Tall and broad-shouldered with tawny hair and green eyes that glow gold in moonlight, Caleb inherited Alpha leadership young. When Ethan left, he chose duty over love—a decision that haunts him still.
+                                        </p>
+                                        <p className="leading-relaxed">
+                                            Years of protecting Maple Hollow have made him respected but lonely. Now Ethan's return forces him to question whether strength means always sacrificing what he wants most.
+                                        </p>
+                                        <div className="pt-4 border-t border-amber-800">
+                                            <p className="text-sm italic text-amber-200">
+                                                "Steady, protective, patient—but yearning to be seen simply as himself"
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* Supporting Cast Teaser */}
+                            <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-6 text-center">
+                                    The Heart of Maple Hollow
+                                </h3>
+                                <div className="grid md:grid-cols-3 gap-6 text-center">
+                                    <div>
+                                        <p className="font-semibold text-amber-300 mb-2">Mayor Dorothea Vance</p>
+                                        <p className="text-sm text-amber-100/80">The town's sharp-eyed matriarch who sees everything</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-amber-300 mb-2">Ruby Cole</p>
+                                        <p className="text-sm text-amber-100/80">Ethan's vibrant cousin and local podcaster</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-amber-300 mb-2">Jasper Reed</p>
+                                        <p className="text-sm text-amber-100/80">The Wildwood's bartender who reads people like books</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* Journey Section */}
+                    {activeTab === 'journey' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
+                                The Emotional Journey
+                            </h2>
+                            <p className="text-xl text-amber-300 text-center mb-16 max-w-3xl mx-auto">
+                                Follow Ethan and Caleb through thirteen chapters of slow-burning tension, healing, and rediscovery under the Harvest Moon.
+                            </p>
+                            
+                            {/* Timeline */}
+                            <div className="relative">
+                                {/* Connection Line */}
+                                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-700 via-orange-600 to-amber-700 transform -translate-x-1/2 hidden md:block"></div>
+                                
+                                <div className="space-y-12">
+                                    {journeyPoints.map((point, idx) => (
+                                        <div
+                                            key={point.chapter}
+                                            className={`flex items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                                            onMouseEnter={() => setHoveredChapter(point.chapter)}
+                                            onMouseLeave={() => setHoveredChapter(null)}
+                                        >
+                                            <div className={`flex-1 ${idx % 2 === 0 ? 'text-right' : 'text-left'} hidden md:block`}>
+                                                <div className={`inline-block p-6 rounded-lg border transition-all ${
+                                                    hoveredChapter === point.chapter
+                                                        ? 'bg-amber-900/60 border-amber-600 transform scale-105'
+                                                        : 'bg-zinc-900/60 border-amber-800/30'
+                                                }`}>
+                                                    <h4 className="heading-font text-2xl font-semibold text-amber-200 mb-2">
+                                                        Chapter {point.chapter}: {point.title}
+                                                    </h4>
+                                                    <p className="text-amber-100/80 italic">{point.emotion}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className={`w-12 h-12 rounded-full ${point.color} border-4 border-amber-900 flex items-center justify-center font-bold text-white z-10 timeline-dot cursor-pointer`}>
+                                                {point.chapter}
+                                            </div>
+                                            
+                                            <div className="flex-1 md:hidden">
+                                                <div className={`p-6 rounded-lg border transition-all ${
+                                                    hoveredChapter === point.chapter
+                                                        ? 'bg-amber-900/60 border-amber-600'
+                                                        : 'bg-zinc-900/60 border-amber-800/30'
+                                                }`}>
+                                                    <h4 className="heading-font text-2xl font-semibold text-amber-200 mb-2">
+                                                        Chapter {point.chapter}: {point.title}
+                                                    </h4>
+                                                    <p className="text-amber-100/80 italic">{point.emotion}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="flex-1 hidden md:block"></div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <div className="mt-16 text-center">
+                                <p className="text-amber-300 text-lg italic">
+                                    Each chapter deepens the connection, reveals hidden truths, and brings them closer to the moment they must choose: flee again, or finally come home to each other.
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* Themes Section */}
+                    {activeTab === 'themes' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-12 text-center">
+                                Themes & Atmosphere
+                            </h2>
+                            
+                            <div className="grid md:grid-cols-2 gap-8 mb-12">
+                                <div className="bg-gradient-to-br from-orange-900/40 to-red-900/40 p-8 rounded-lg border border-orange-700/50">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        🍂 Autumn Atmosphere
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        October fog rolling through ancient forests. Applewood smoke and cinnamon spice. Full moons that hold more power than science allows. Every detail is chosen to evoke the season of transformation.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-gradient-to-br from-amber-900/40 to-yellow-900/40 p-8 rounded-lg border border-amber-700/50">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        🌙 Paranormal as Metaphor
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        Shifters represent the parts of ourselves we hide. The full moon embodies transformation. Magic reflects emotional truth—not as gimmick, but as a natural extension of the world and its people.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-8 rounded-lg border border-slate-700/50">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        💔 Healing Old Wounds
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        This isn't a story of first love—it's about second chances. About learning that vulnerability is strength, that coming home can be the bravest journey, and that love rebuilt with intention is worth the risk.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-gradient-to-br from-amber-800/40 to-orange-800/40 p-8 rounded-lg border border-amber-600/50">
+                                    <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                        👥 Found Family
+                                    </h3>
+                                    <p className="text-amber-100/90 leading-relaxed">
+                                        Maple Hollow isn't just a setting—it's a character. The pack, the town, the community that never forgot Ethan. Belonging matters as much as romance, and both are earned through trust and time.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-zinc-900/60 p-10 rounded-lg border border-amber-800/30 text-center">
+                                <h3 className="heading-font text-4xl font-semibold text-amber-200 mb-6">
+                                    What to Expect
+                                </h3>
+                                <div className="grid md:grid-cols-3 gap-6 text-left">
+                                    <div>
+                                        <p className="font-semibold text-amber-300 mb-2">✨ Slow Burn Romance</p>
+                                        <p className="text-sm text-amber-100/80">Tension builds gradually, intimacy is earned, and every touch matters</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-amber-300 mb-2">🔥 Heat Level: 4/5</p>
+                                        <p className="text-sm text-amber-100/80">Open-door intimacy rooted in emotional connection and vulnerability</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-amber-300 mb-2">🕊️ Low Angst</p>
+                                        <p className="text-sm text-amber-100/80">Emotionally charged but cozy—no melodrama or manufactured conflict</p>
+                                    </div>
+                                </div>
+                                <div className="mt-8 p-6 bg-amber-900/30 rounded border border-amber-700/30">
+                                    <p className="text-amber-100 italic text-lg">
+                                        "This book feels like coming home while holding someone's hand in the dark."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* Footer */}
+                    <div className="bg-zinc-950 border-t border-amber-800/30 py-12">
+                        <div className="max-w-6xl mx-auto px-6 text-center">
+                            <h3 className="heading-font text-4xl font-bold text-amber-100 mb-4">
+                                Moonlight on Maple Hollow
+                            </h3>
+                            <p className="text-amber-300 mb-6">
+                                A paranormal romance for readers who believe the most powerful magic is being truly seen by another person.
+                            </p>
+                            <div className="flex gap-4 justify-center flex-wrap text-sm mb-8">
+                                <span className="text-amber-400">🏳️‍🌈 M/M Romance</span>
+                                <span className="text-amber-400">🐺 Shifter Fiction</span>
+                                <span className="text-amber-400">🍂 Autumn Setting</span>
+                                <span className="text-amber-400">💛 Second Chance Love</span>
+                            </div>
+                            <p className="text-amber-500 text-sm">
+                                © 2025 • All rights reserved
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        
+        ReactDOM.render(<MoonlightPromo />, document.getElementById('root'));
+    </script>
+</body>
+</html>
