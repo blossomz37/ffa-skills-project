@@ -372,9 +372,9 @@
                         </div>
                     </div>
 
-                    {/* Home Section (previously above the navbar) */}
+                    {/* Home Section */}
                     {activeTab === 'home' && (
-                        <div className="relative min-h-screen md:h-screen flex items-start md:items-center justify-center overflow-hidden z-40 pt-16 md:pt-0">
+                        <div className="relative min-h-screen overflow-hidden z-40">
                             <div className="absolute inset-0" style={{
                                 backgroundImage: 'url(https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/moonlight-on-maple-hollow-7.png)',
                                 backgroundSize: 'cover',
@@ -383,53 +383,40 @@
                                 filter: 'blur(2px)'
                             }}></div>
                             <div className="absolute inset-0 fog-effect"></div>
-                            <div className="relative z-10 px-6 fade-in max-w-6xl mx-auto w-full">
-                                {/* Mobile: centered layout */}
-                                <div className="flex flex-col items-center text-center md:hidden">
-                                    {/* Book Cover */}
-                                    <div className="mb-8">
-                                        <div className="w-64 h-96 bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
+                            <div className="max-w-6xl mx-auto px-6 py-20 pt-32 relative z-10">
+                                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                                    {/* Book Cover Card */}
+                                    <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay flex items-center justify-center">
+                                        <div className="w-64 h-96 md:w-80 md:h-[480px] bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
                                             <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maple-hollow-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
                                         </div>
                                     </div>
-                                    {/* Text Content */}
-                                    <h1 className="heading-font text-7xl font-bold mb-6 text-amber-100" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Moonlight on Maple Hollow</h1>
-                                    <p className="text-2xl text-amber-200 mb-4 italic" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>A Paranormal Romance</p>
-                                    <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
-                                        When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
-                                    </p>
+                                    
+                                    {/* Title & Description Card */}
+                                    <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                        <h1 className="heading-font text-4xl md:text-6xl font-bold mb-4 text-amber-100">
+                                            Moonlight on Maple Hollow
+                                        </h1>
+                                        <p className="text-2xl md:text-3xl text-amber-200 mb-6 italic">
+                                            A Paranormal Romance
+                                        </p>
+                                        <p className="text-lg md:text-xl text-amber-300 leading-relaxed">
+                                            When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                {/* Genre Badges Card */}
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <h3 className="heading-font text-2xl font-semibold text-amber-200 mb-4 text-center">
+                                        What You'll Find Inside
+                                    </h3>
                                     <div className="flex gap-4 justify-center flex-wrap text-sm">
                                         <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🐺 Werewolf Romance</span>
                                         <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🌙 Harvest Moon Magic</span>
                                         <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">✨ Shifter Pack</span>
                                         <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🔮 Small Town Magic</span>
                                         <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">💫 Second Chance</span>
-                                    </div>
-                                </div>
-                                
-                                {/* Desktop: two-column layout */}
-                                <div className="hidden md:grid md:grid-cols-2 md:gap-16 md:items-start">
-                                    {/* Left: Book Cover */}
-                                    <div className="flex justify-center">
-                                        <div className="w-80 h-[480px] bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
-                                            <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maple-hollow-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Right: Text Content */}
-                                    <div className="text-left">
-                                        <h1 className="heading-font text-6xl lg:text-7xl font-bold mb-6 text-amber-100" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Moonlight on Maple Hollow</h1>
-                                        <p className="text-3xl lg:text-4xl text-amber-200 mb-8 italic" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>A Paranormal Romance</p>
-                                        <p className="text-xl lg:text-2xl text-amber-300 leading-relaxed mb-8" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
-                                            When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
-                                        </p>
-                                        <div className="flex gap-4 flex-wrap text-sm">
-                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🐺 Werewolf Romance</span>
-                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🌙 Harvest Moon Magic</span>
-                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">✨ Shifter Pack</span>
-                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🔮 Small Town Magic</span>
-                                            <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">💫 Second Chance</span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -927,9 +914,9 @@
                     )}
                     
                     {/* Footer */}
-                    <div className="bg-zinc-950 border-t border-amber-800/30 py-12">
+                    <div className="bg-zinc-950 border-t border-amber-800/30 py-4">
                         <div className="max-w-6xl mx-auto px-6 text-center">
-                            <p className="text-amber-500 text-sm">
+                            <p className="text-amber-500 text-xs">
                                 © 2025 • All rights reserved
                             </p>
                         </div>
