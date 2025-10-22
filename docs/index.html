@@ -192,7 +192,7 @@
         };
 
         const MoonlightPromo = () => {
-            const tabs = ['home', 'story', 'characters', 'journey', 'themes', 'chapters'];
+            const tabs = ['home', 'story', 'supernatural', 'characters', 'journey', 'themes', 'chapters'];
             const initialTab = (() => {
                 try {
                     const h = window.location.hash ? window.location.hash.slice(1) : '';
@@ -270,7 +270,7 @@
                     <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
                         <div className="max-w-6xl mx-auto px-6 py-4">
                             <div className="flex gap-4 items-center justify-center md:justify-between flex-wrap">
-                                {['home', 'story', 'characters', 'journey', 'themes', 'chapters'].map(tab => (
+                                {['home', 'story', 'supernatural', 'characters', 'journey', 'themes', 'chapters'].map(tab => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
@@ -325,16 +325,16 @@
                                 </div>
                                 <h1 className="heading-font text-7xl md:text-8xl font-bold mb-6 text-amber-100">Moonlight on Maple Hollow</h1>
                                 <p className="text-2xl md:text-3xl text-amber-200 mb-4 italic">A Paranormal Romance</p>
-                                <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8">
-                                    When a skeptical journalist returns to his haunted hometown, he rekindles a forbidden bond with the local Alpha—and discovers that some loves are worth the risk of being seen.
-                                </p>
-                                <div className="flex gap-4 justify-center flex-wrap text-sm">
-                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Small Town</span>
-                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Shifter Romance</span>
-                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Second Chance</span>
-                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Slow Burn</span>
-                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Found Family</span>
-                                </div>
+                                                            <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8">
+                                When a skeptical journalist returns to his magical hometown, he must face the werewolf Alpha who broke his heart—and the supernatural forces that demand truth under the Harvest Moon's power.
+                            </p>
+                            <div className="flex gap-4 justify-center flex-wrap text-sm">
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🐺 Werewolf Romance</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🌙 Harvest Moon Magic</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">✨ Shifter Pack</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">🔮 Small Town Magic</span>
+                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">💫 Second Chance</span>
+                            </div>
                             </div>
                         </div>
                     )}
@@ -349,25 +349,25 @@
                             <div className="grid md:grid-cols-2 gap-12 mb-16">
                                 <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
                                     <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
-                                        The Setting
+                                        🌙 The Supernatural World
                                     </h3>
                                     <p className="text-amber-100/90 leading-relaxed mb-4">
-                                        Maple Hollow is a misty Appalachian town where October lingers in perpetual twilight. Here, folklore and reality blur, pumpkins line every porch, and the full moon holds more power than most outsiders realize.
+                                        Maple Hollow is a town where werewolves, witches, and humans have coexisted openly since the 1920s. The local Alpha runs the tavern, werebears operate the lumber mill, and witches sell protection charms at the farmer's market.
                                     </p>
                                     <p className="text-amber-100/90 leading-relaxed">
-                                        This is a place where magic isn't mystical—it's as natural as maple syrup. Where the barber moonlights as a bear, and protection runes are carved into doorframes alongside welcome signs.
+                                        But the Harvest Moon brings danger—it amplifies all emotions, forcing hidden truths to surface. When shifters struggle for control, their emotional energy can "leak" into the human population, and the magical wards that protect the town begin to fray.
                                     </p>
                                 </div>
                                 
                                 <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
                                     <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
-                                        The Romance
+                                        🐺 The Alpha & The Human
                                     </h3>
                                     <p className="text-amber-100/90 leading-relaxed mb-4">
-                                        Twelve years ago, Ethan Cole fled Maple Hollow—and the boy who broke his heart. Now he's back as a journalist covering the Harvest Moon Festival, determined to keep his distance.
+                                        Twelve years ago, Ethan fled when he discovered his boyfriend Caleb was a werewolf—and heir to the Alpha position. Now Ethan's back to cover the Harvest Moon Festival, unaware that the moon's magic won't let him hide his feelings anymore.
                                     </p>
                                     <p className="text-amber-100/90 leading-relaxed">
-                                        But Caleb Hawthorne, now the town's Alpha and keeper of secrets, has been waiting. Between them lies a past that needs healing, a present crackling with tension, and a future that depends on whether they can trust each other again.
+                                        Caleb has spent years protecting his pack and maintaining the delicate balance between the supernatural and human worlds. But with Ethan's return and the Harvest Moon amplifying every emotion, his legendary control begins to crack—and the entire town feels it.
                                     </p>
                                 </div>
                             </div>
@@ -397,6 +397,169 @@
                         </div>
                     )}
                     
+                    {/* Supernatural Section */}
+                    {activeTab === 'supernatural' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
+                                The Supernatural World
+                            </h2>
+                            <p className="text-xl text-amber-300 text-center mb-12 max-w-3xl mx-auto">
+                                In Maple Hollow, magic isn't hidden—it's woven into everyday life. But during the Harvest Moon, 
+                                the boundaries between human and supernatural blur dangerously.
+                            </p>
+                            
+                            {/* The Pack */}
+                            <div className="bg-gradient-to-br from-amber-900/60 to-orange-900/60 p-8 rounded-lg border border-amber-700 mb-8 card-texture-overlay">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4 flex items-center gap-3">
+                                    <span className="text-4xl">🐺</span> The Maple Hollow Pack
+                                </h3>
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <p className="text-amber-100/90 leading-relaxed mb-4">
+                                            <strong className="text-amber-200">The Alpha's Burden:</strong> Caleb inherited leadership at 24 when his father passed. 
+                                            As Alpha, he doesn't just lead—he literally feels his pack's emotions, carries their struggles, and must maintain 
+                                            control even when the moon demands surrender.
+                                        </p>
+                                        <p className="text-amber-100/90 leading-relaxed">
+                                            <strong className="text-amber-200">Pack Dynamics:</strong> The pack isn't just a group—they're psychically linked. 
+                                            During the full moon, emotions ripple through the pack bond like wildfire. One member's anger can ignite the whole pack's fury.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className="text-amber-100/90 leading-relaxed mb-4">
+                                            <strong className="text-amber-200">Shifting Rituals:</strong> Transformation happens communally in designated safe spaces. 
+                                            The Wildwood Tavern has special "shift rooms" warded for protection. Public shifting is celebrated during festivals but 
+                                            carefully controlled.
+                                        </p>
+                                        <p className="text-amber-100/90 leading-relaxed">
+                                            <strong className="text-amber-200">The Wolf Within:</strong> Each shifter has a wolf consciousness—not separate, but another 
+                                            facet of themselves. The wolf sees truth, feels deeply, and can't lie. This becomes crucial when Ethan returns.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* The Harvest Moon */}
+                            <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-8 rounded-lg border border-slate-700 mb-8 card-texture-overlay">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4 flex items-center gap-3">
+                                    <span className="text-4xl">🌙</span> The Harvest Moon's Power
+                                </h3>
+                                <div className="space-y-4 text-amber-100/90">
+                                    <p className="leading-relaxed">
+                                        <strong className="text-amber-300">Emotional Amplification:</strong> The Harvest Moon doesn't create feelings—it amplifies what's already there. 
+                                        Love becomes overwhelming, anger turns volcanic, and secrets refuse to stay buried. For shifters, this effect is tripled.
+                                    </p>
+                                    <p className="leading-relaxed">
+                                        <strong className="text-amber-300">Truth Compulsion:</strong> The moon reveals truth. Any secret kept through the full lunar cycle will find a way 
+                                        to expose itself. Ethan's hidden feelings, Caleb's suppressed desires—nothing stays hidden under the Harvest Moon.
+                                    </p>
+                                    <p className="leading-relaxed">
+                                        <strong className="text-amber-300">Sacred Bonds:</strong> Connections formed during the Harvest Moon are considered sacred and lifelong. 
+                                        This is why Caleb and Ethan's reunion during this time is so significant—and dangerous.
+                                    </p>
+                                    <p className="leading-relaxed">
+                                        <strong className="text-amber-300">The Emotional Leak:</strong> When the pack struggles for control, their amplified emotions can "leak" into 
+                                        the human population. Suddenly, the whole town feels inexplicably angry, sad, or aroused—leading to the crisis in Chapter 10.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {/* The Magic System */}
+                            <div className="grid md:grid-cols-3 gap-6 mb-8">
+                                <div className="bg-zinc-900/60 p-6 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <h4 className="heading-font text-2xl font-semibold text-amber-200 mb-3 flex items-center gap-2">
+                                        <span className="text-2xl">🔮</span> Ward Magic
+                                    </h4>
+                                    <p className="text-amber-100/90 text-sm leading-relaxed">
+                                        Magical ribbons and stones create protective boundaries around the town. They contain supernatural 
+                                        energy and maintain the balance between worlds. When they fray, chaos follows.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-zinc-900/60 p-6 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <h4 className="heading-font text-2xl font-semibold text-amber-200 mb-3 flex items-center gap-2">
+                                        <span className="text-2xl">🌿</span> Witch Craft
+                                    </h4>
+                                    <p className="text-amber-100/90 text-sm leading-relaxed">
+                                        Local witches like Mara don't cast flashy spells—they weave protection into everyday items. 
+                                        Sachets of herbs, blessed ribbons, and charged stones keep the town's magic in balance.
+                                    </p>
+                                </div>
+                                
+                                <div className="bg-zinc-900/60 p-6 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <h4 className="heading-font text-2xl font-semibold text-amber-200 mb-3 flex items-center gap-2">
+                                        <span className="text-2xl">📜</span> The Hollow Accord
+                                    </h4>
+                                    <p className="text-amber-100/90 text-sm leading-relaxed">
+                                        A magical contract from the 1920s that governs coexistence. No violence within town borders, 
+                                        no shifting for intimidation, and all disputes settled through ritual or council.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {/* The Stakes */}
+                            <div className="bg-gradient-to-br from-red-900/40 to-orange-900/40 p-8 rounded-lg border border-red-700/50 card-texture-overlay">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-4">
+                                    ⚡ The Supernatural Stakes
+                                </h3>
+                                <p className="text-amber-100/90 leading-relaxed mb-4">
+                                    This isn't just a romance—it's about two worlds colliding. When Ethan's article about the pack's emotional influence leaks, 
+                                    it threatens to destroy decades of peaceful coexistence. The town turns suspicious, the pack grows defensive, and the 
+                                    already-strained wards begin to crack.
+                                </p>
+                                <p className="text-amber-100/90 leading-relaxed">
+                                    Caleb must choose between his duty as Alpha and his love for Ethan. Ethan must decide if he can accept all of Caleb—human 
+                                    and wolf. And both must face the truth that their love might be the key to saving Maple Hollow's magical balance... or destroying it.
+                                </p>
+                            </div>
+                            
+                            {/* Fun Facts */}
+                            <div className="mt-8 bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-6 text-center">
+                                    Supernatural Details You'll Love
+                                </h3>
+                                <div className="grid md:grid-cols-2 gap-6 text-amber-100/90">
+                                    <ul className="space-y-3">
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>Caleb's eyes glow gold when his wolf is close to the surface</span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>The pack can sense lies—making Ethan's return very complicated</span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>Mrs. Chen shifts into a wolf to run patrol, then sells pastries the next morning</span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>The Wildwood Tavern is built on a ley line, making it a supernatural nexus</span>
+                                        </li>
+                                    </ul>
+                                    <ul className="space-y-3">
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>Alpha commands carry magical weight—Caleb rarely uses this power</span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>The town's weather responds to supernatural emotional states</span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>Shifter body temperature runs hot—important for those intimate scenes</span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400">•</span>
+                                            <span>The morning after the full moon, the whole town needs extra coffee</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
                     {/* Characters Section */}
                     {activeTab === 'characters' && (
                         <div className="max-w-6xl mx-auto px-6 py-20">
@@ -421,17 +584,18 @@
                                     <div className="space-y-4 text-amber-100/90">
                                         <p>
                                             <span className="font-semibold text-amber-300">Age:</span> 30 | 
-                                            <span className="font-semibold text-amber-300 ml-2">Profession:</span> Investigative Journalist
+                                            <span className="font-semibold text-amber-300 ml-2">Species:</span> Human | 
+                                            <span className="font-semibold text-amber-300 ml-2">Role:</span> Investigative Journalist
                                         </p>
                                         <p className="leading-relaxed">
-                                            Lean and sharp-featured with wind-tousled dark curls, Ethan carries the weight of old wounds behind witty observations. He left Maple Hollow at eighteen, fleeing grief and heartbreak, and built a career exposing truth in the city.
+                                            Lean and sharp-featured with wind-tousled dark curls, Ethan fled Maple Hollow at eighteen when he discovered the supernatural truth about his boyfriend—and couldn't handle it. He built walls around his heart and a career exposing truth in the city.
                                         </p>
                                         <p className="leading-relaxed">
-                                            Now burnout and loneliness have brought him home for what should be a simple assignment. But facing Caleb—and the supernatural world he once knew—proves anything but simple.
+                                            Now he's back to cover the Harvest Moon Festival, thinking he can remain objective. But the moon's magic doesn't care about his walls, and being near Caleb awakens something primal he thought he'd buried—an inexplicable pull toward the wolf who still calls to him.
                                         </p>
                                         <div className="pt-4 border-t border-slate-700">
                                             <p className="text-sm italic text-amber-300">
-                                                "Curious, emotionally cautious, hides vulnerability behind humor"
+                                                "The skeptic who can't explain why he dreams of running with wolves"
                                             </p>
                                         </div>
                                     </div>
@@ -453,17 +617,18 @@
                                     <div className="space-y-4 text-amber-50/90">
                                         <p>
                                             <span className="font-semibold text-amber-200">Age:</span> 32 | 
-                                            <span className="font-semibold text-amber-200 ml-2">Role:</span> Pack Alpha & Tavern Owner
+                                            <span className="font-semibold text-amber-200 ml-2">Species:</span> Werewolf | 
+                                            <span className="font-semibold text-amber-200 ml-2">Role:</span> Pack Alpha
                                         </p>
                                         <p className="leading-relaxed">
-                                            Tall and broad-shouldered with tawny hair and green eyes that glow gold in moonlight, Caleb inherited Alpha leadership young. When Ethan left, he chose duty over love—a decision that haunts him still.
+                                            Tall and broad-shouldered with tawny hair and green eyes that burn gold when his wolf surfaces. As Alpha, Caleb carries his entire pack's emotional weight—literally feeling their joys and pains through the pack bond. His control is legendary, but Ethan's presence makes his wolf restless in ways that threaten everything.
                                         </p>
                                         <p className="leading-relaxed">
-                                            Years of protecting Maple Hollow have made him respected but lonely. Now Ethan's return forces him to question whether strength means always sacrificing what he wants most.
+                                            Eight years of protecting both human and supernatural citizens has earned respect but deepened his isolation. His wolf recognized Ethan as his mate years ago, and no amount of duty or distance has changed that truth. Now the Harvest Moon demands he stop hiding what he is—and what Ethan means to him.
                                         </p>
                                         <div className="pt-4 border-t border-amber-800">
                                             <p className="text-sm italic text-amber-200">
-                                                "Steady, protective, patient—but yearning to be seen simply as himself"
+                                                "The Alpha whose wolf howls for the one human who ran from his truth"
                                             </p>
                                         </div>
                                     </div>
@@ -473,21 +638,30 @@
                             {/* Supporting Cast Teaser */}
                             <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
                                 <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-6 text-center">
-                                    The Heart of Maple Hollow
+                                    The Supernatural Community
                                 </h3>
-                                <div className="grid md:grid-cols-3 gap-6 text-center">
-                                    <div>
-                                        <p className="font-semibold text-amber-300 mb-2">Mayor Dorothea Vance</p>
-                                        <p className="text-sm text-amber-100/80">The town's sharp-eyed matriarch who sees everything</p>
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="text-center">
+                                        <p className="font-semibold text-amber-300 mb-2">🔮 Mara - Pack Witch</p>
+                                        <p className="text-sm text-amber-100/80">Maintains the magical wards and reads the moon's intentions with unsettling accuracy</p>
                                     </div>
-                                    <div>
-                                        <p className="font-semibold text-amber-300 mb-2">Ruby Cole</p>
-                                        <p className="text-sm text-amber-100/80">Ethan's vibrant cousin and local podcaster</p>
+                                    <div className="text-center">
+                                        <p className="font-semibold text-amber-300 mb-2">🐺 Sarah Chen - Beta Wolf</p>
+                                        <p className="text-sm text-amber-100/80">Runs the bakery by day, patrols the forest by night, ships Caleb/Ethan aggressively</p>
                                     </div>
-                                    <div>
-                                        <p className="font-semibold text-amber-300 mb-2">Jasper Reed</p>
-                                        <p className="text-sm text-amber-100/80">The Wildwood's bartender who reads people like books</p>
+                                    <div className="text-center">
+                                        <p className="font-semibold text-amber-300 mb-2">🐻 Marcus - Werebear</p>
+                                        <p className="text-sm text-amber-100/80">Operates the lumber mill, gentle giant who keeps the peace between species</p>
                                     </div>
+                                    <div className="text-center">
+                                        <p className="font-semibold text-amber-300 mb-2">👁️ Jasper Reed - Human(?)</p>
+                                        <p className="text-sm text-amber-100/80">Bartender with an uncanny ability to read emotions—maybe too uncanny</p>
+                                    </div>
+                                </div>
+                                <div className="mt-6 pt-6 border-t border-amber-800/30">
+                                    <p className="text-center text-amber-300 italic">
+                                        Plus a whole town of witches, shifters, and humans living in magical coexistence—until the Harvest Moon threatens everything
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -654,13 +828,14 @@
                                 Moonlight on Maple Hollow
                             </h3>
                             <p className="text-amber-300 mb-6">
-                                A paranormal romance for readers who believe the most powerful magic is being truly seen by another person.
+                                A werewolf romance where the real magic is learning to love all of someone—human and wolf, strength and vulnerability.
                             </p>
                             <div className="flex gap-4 justify-center flex-wrap text-sm mb-8">
-                                <span className="text-amber-400">🏳️‍🌈 M/M Romance</span>
-                                <span className="text-amber-400">🐺 Shifter Fiction</span>
-                                <span className="text-amber-400">🍂 Autumn Setting</span>
-                                <span className="text-amber-400">💛 Second Chance Love</span>
+                                <span className="text-amber-400">🐺 Werewolf Alpha Romance</span>
+                                <span className="text-amber-400">🌙 Harvest Moon Magic</span>
+                                <span className="text-amber-400">🏳️‍� M/M Paranormal</span>
+                                <span className="text-amber-400">� Witches & Shifters</span>
+                                <span className="text-amber-400">✨ Fated Mates</span>
                             </div>
                             <p className="text-amber-500 text-sm">
                                 © 2025 • All rights reserved
