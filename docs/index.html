@@ -646,112 +646,79 @@
                     {/* Characters Section */}
                     {activeTab === 'characters' && (
                         <div className="max-w-6xl mx-auto px-6 py-20 bg-image-1 pt-32">
-                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-12 text-center">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-8 text-center">
                                 Meet the Characters
                             </h2>
                             
-                            <div className="grid md:grid-cols-3 gap-8 mb-16">
+                            <div className="grid md:grid-cols-2 gap-8 mb-8">
                                 {/* Ethan Card */}
-                                <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-slate-600 card-hover pt-16 card-texture-overlay">
-                                    <div className="flex items-center mb-6 justify-center flex-col text-center" style={{ transform: 'translateY(-80px)' }}>
-                                        {/* Ethan Image Placeholder - ADD YOUR IMAGE URL HERE */}
-                                        <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-amber-600 flex-shrink-0 shadow-lg">
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <div className="flex items-start gap-6 mb-6">
+                                        {/* Ethan Image */}
+                                        <div className="w-24 h-24 rounded-2xl overflow-hidden border-4 border-amber-600 flex-shrink-0 shadow-lg">
                                             <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/mc-1-ethan-v2.png" alt="Ethan Cole" className="w-full h-full object-cover object-center scale-110" />
                                         </div>
-                                        <div className="mt-4">
-                                            <h3 className="heading-font text-3xl font-bold text-amber-100">Ethan Cole</h3>
-                                            <p className="text-amber-300 italic">The Skeptical Journalist</p>
+                                        <div className="flex-1">
+                                            <h3 className="heading-font text-3xl font-bold text-amber-200 mb-2">Ethan Cole</h3>
+                                            <p className="text-amber-300 text-lg italic mb-4">The Skeptical Journalist</p>
                                         </div>
                                     </div>
-                                    
-                                    <div className="space-y-4 text-amber-100/90" style={{ marginTop: '-60px' }}>
-                                        <p>
-                                            <span className="font-semibold text-amber-300">Age:</span> 30 | 
-                                            <span className="font-semibold text-amber-300 ml-2">Species:</span> Human | 
-                                            <span className="font-semibold text-amber-300 ml-2">Role:</span> Investigative Journalist
-                                        </p>
-                                        <p className="leading-relaxed">
-                                            Lean and sharp-featured with wind-tousled dark curls, Ethan fled Maple Hollow at eighteen when he discovered the supernatural truth about his boyfriend—and couldn't handle it. He built walls around his heart and a career exposing truth in the city.
-                                        </p>
-                                        <p className="leading-relaxed">
-                                            Now he's back to cover the Harvest Moon Festival, thinking he can remain objective. But the moon's magic doesn't care about his walls, and being near Caleb awakens something primal he thought he'd buried—an inexplicable pull toward the wolf who still calls to him.
-                                        </p>
-                                        <div className="pt-4 border-t border-slate-700">
-                                            <p className="text-sm italic text-amber-300">
-                                                "The skeptic who can't explain why he dreams of running with wolves"
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <p className="text-amber-100/90 leading-relaxed mb-4">
+                                        Twelve years ago, Ethan fled Maple Hollow when he discovered his boyfriend was a werewolf. Now he's back as a journalist, armed with skepticism and unresolved feelings. But the Harvest Moon has other plans for his carefully guarded heart.
+                                    </p>
+                                    <p className="text-amber-300 text-sm">
+                                        <strong>Age:</strong> 30 • <strong>Role:</strong> Investigative Journalist • <strong>Weakness:</strong> Can't resist the truth
+                                    </p>
                                 </div>
                                 
                                 {/* Caleb Card */}
-                                <div className="bg-gradient-to-br from-amber-900 to-orange-900 p-8 rounded-lg border border-amber-700 card-hover pt-16 card-texture-overlay">
-                                    <div className="flex items-center mb-6 justify-center flex-col text-center" style={{ transform: 'translateY(-80px)' }}>
-                                        {/* Caleb Image Placeholder - ADD YOUR IMAGE URL HERE */}
-                                        <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-amber-400 flex-shrink-0 shadow-lg">
+                                <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                    <div className="flex items-start gap-6 mb-6">
+                                        {/* Caleb Image */}
+                                        <div className="w-24 h-24 rounded-2xl overflow-hidden border-4 border-amber-400 flex-shrink-0 shadow-lg">
                                             <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/mc-2-caleb-2.png" alt="Caleb Hawthorne" className="w-full h-full object-cover object-center scale-125" />
                                         </div>
-                                        <div className="mt-4">
-                                            <h3 className="heading-font text-3xl font-bold text-amber-50">Caleb Hawthorne</h3>
-                                            <p className="text-amber-200 italic">The Patient Alpha</p>
+                                        <div className="flex-1">
+                                            <h3 className="heading-font text-3xl font-bold text-amber-200 mb-2">Caleb Hawthorne</h3>
+                                            <p className="text-amber-300 text-lg italic mb-4">The Patient Alpha</p>
                                         </div>
                                     </div>
-                                    
-                                    <div className="space-y-4 text-amber-50/90" style={{ marginTop: '-60px' }}>
-                                        <p>
-                                            <span className="font-semibold text-amber-200">Age:</span> 32 | 
-                                            <span className="font-semibold text-amber-200 ml-2">Species:</span> Werewolf | 
-                                            <span className="font-semibold text-amber-200 ml-2">Role:</span> Pack Alpha
-                                        </p>
-                                        <p className="leading-relaxed">
-                                            Tall and broad-shouldered with tawny hair and green eyes that burn gold when his wolf surfaces. As Alpha, Caleb carries his entire pack's emotional weight—literally feeling their joys and pains through the pack bond. His control is legendary, but Ethan's presence makes his wolf restless in ways that threaten everything.
-                                        </p>
-                                        <p className="leading-relaxed">
-                                            Eight years of protecting both human and supernatural citizens has earned respect but deepened his isolation. His wolf recognized Ethan as his mate years ago, and no amount of duty or distance has changed that truth. Now the Harvest Moon demands he stop hiding what he is—and what Ethan means to him.
-                                        </p>
-                                        <div className="pt-4 border-t border-amber-800">
-                                            <p className="text-sm italic text-amber-200">
-                                                "The Alpha whose wolf howls for the one human who ran from his truth"
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <p className="text-amber-100/90 leading-relaxed mb-4">
+                                        As Alpha of the Maple Hollow pack, Caleb has spent years protecting his town and maintaining the balance between worlds. But Ethan's return threatens his legendary control—and awakens the wolf who never stopped calling him mate.
+                                    </p>
+                                    <p className="text-amber-300 text-sm">
+                                        <strong>Age:</strong> 32 • <strong>Role:</strong> Pack Alpha • <strong>Weakness:</strong> One stubborn journalist
+                                    </p>
                                 </div>
-                                
-                                {/* Supporting Cast Card */}
-                                <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 rounded-lg border border-zinc-600 card-hover pt-16 card-texture-overlay">
-                                    <div className="flex items-center mb-6 justify-center flex-col text-center" style={{ transform: 'translateY(-80px)' }}>
-                                        {/* Community Icon */}
-                                        <div className="w-28 h-28 rounded-2xl border-4 border-amber-500 flex-shrink-0 shadow-lg bg-gradient-to-br from-amber-900/80 to-orange-900/80 flex items-center justify-center">
-                                            <span className="text-5xl">🌙</span>
-                                        </div>
-                                        <div className="mt-4">
-                                            <h3 className="heading-font text-3xl font-bold text-amber-100">The Pack & Town</h3>
-                                            <p className="text-amber-300 italic">The Supernatural Community</p>
-                                        </div>
+                            </div>
+                            
+                            {/* Supporting Characters Card */}
+                            <div className="bg-zinc-900/60 p-8 rounded-lg border border-amber-800/30 card-texture-overlay">
+                                <h3 className="heading-font text-3xl font-semibold text-amber-200 mb-6 text-center flex items-center justify-center gap-3">
+                                    <span className="text-4xl">👥</span> The Supporting Cast
+                                </h3>
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 className="text-amber-300 font-semibold mb-2 flex items-center gap-2">
+                                            <span>🔮</span> Mara - The Pack Witch
+                                        </h4>
+                                        <p className="text-amber-100/90 text-sm mb-4">Maintains the magical wards and knows exactly what the moon wants.</p>
+                                        
+                                        <h4 className="text-amber-300 font-semibold mb-2 flex items-center gap-2">
+                                            <span>🐺</span> Sarah Chen - Beta Wolf
+                                        </h4>
+                                        <p className="text-amber-100/90 text-sm mb-4">Baker by day, patrol wolf by night, eternal matchmaker.</p>
                                     </div>
-                                    
-                                    <div className="space-y-3 text-amber-100/90" style={{ marginTop: '-60px' }}>
-                                        <div className="pb-3 border-b border-zinc-700">
-                                            <p className="font-semibold text-amber-300">🔮 Mara - Pack Witch</p>
-                                            <p className="text-sm">Maintains magical wards, reads the moon's intentions</p>
-                                        </div>
-                                        <div className="pb-3 border-b border-zinc-700">
-                                            <p className="font-semibold text-amber-300">🐺 Sarah Chen - Beta Wolf</p>
-                                            <p className="text-sm">Baker by day, patrol wolf by night, eternal shipper</p>
-                                        </div>
-                                        <div className="pb-3 border-b border-zinc-700">
-                                            <p className="font-semibold text-amber-300">🐻 Marcus - Werebear</p>
-                                            <p className="text-sm">Lumber mill owner, gentle peacekeeper</p>
-                                        </div>
-                                        <div className="pb-3">
-                                            <p className="font-semibold text-amber-300">👁️ Jasper Reed - Human(?)</p>
-                                            <p className="text-sm">Bartender with uncanny emotional perception</p>
-                                        </div>
-                                        <div className="pt-4 border-t border-zinc-700">
-                                            <p className="text-sm italic text-amber-300">
-                                                "A town where magic and mundane coexist—until the moon demands truth"
-                                            </p>
-                                        </div>
+                                    <div>
+                                        <h4 className="text-amber-300 font-semibold mb-2 flex items-center gap-2">
+                                            <span>🐻</span> Marcus - Werebear
+                                        </h4>
+                                        <p className="text-amber-100/90 text-sm mb-4">Lumber mill owner and the pack's gentle peacekeeper.</p>
+                                        
+                                        <h4 className="text-amber-300 font-semibold mb-2 flex items-center gap-2">
+                                            <span>🏘️</span> The Community
+                                        </h4>
+                                        <p className="text-amber-100/90 text-sm">A town where magic and mundane coexist—until secrets demand to be told.</p>
                                     </div>
                                 </div>
                             </div>
