@@ -1,5 +1,3 @@
-# Chapter 13 – The Morning After the Moon
-
 The world smelled of coffee and wet pine, and for once Ethan didn't feel like a visitor in his own skin.
 
 He lay in Caleb's bed, tangled in sheets that smelled like woodsmoke and the faint musk of shifter—a scent that had terrified him once, years ago, when he was eighteen and too afraid of wanting something he couldn't control. Now it just felt like home.

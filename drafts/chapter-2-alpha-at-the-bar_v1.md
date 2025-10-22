@@ -1,5 +1,3 @@
-# Chapter 2 – Alpha at the Bar
-
 The Wildwood Tavern filled with golden afternoon light slanting through the western windows, illuminating dust motes like tiny constellations as Caleb polished the bar until the oak looked like poured honey.
 
 He told himself the shine meant everything was under control.

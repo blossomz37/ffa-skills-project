@@ -1,5 +1,3 @@
-# Chapter 8 – Storm Signs
-
 The first drops hit the rusted dome before either of them dared to say what they really came for.
 
 Caleb felt them—cold pinpricks on his neck, soaking into the collar of his flannel—and knew they should turn back. Should head down the winding path before the trail turned to mud and the sky opened fully. But Ethan was ahead of him on the narrow trail, hands in his jacket pockets, shoulders squared against the rising wind, and Caleb couldn't quite make himself call out the warning.

@@ -1,5 +1,3 @@
-# Chapter 1 – Homecoming Fog
-
 Mist swallowed the last road sign before Maple Hollow—appropriate, Ethan thought, for a place that preferred its secrets blurred.
 
 The GPS had stopped working twenty miles ago. Not that he needed it. His hands remembered the turns, his body remembered the road—remembered it in a way that went deeper than conscious geography. The cellular signal had faded too, dropping him back into the analog world of his childhood, where the forest was the only network that mattered.

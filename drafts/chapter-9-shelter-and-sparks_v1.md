@@ -1,5 +1,3 @@
-# Chapter 9 – Shelter and Sparks
-
 The storm hadn't followed them inside, but it left the air aching for thunder.
 
 Ethan stood dripping in Caleb's cabin, rain pooling on worn floorboards, and tried to remember how breathing worked. His jacket clung cold to his shoulders. His jeans stuck to his legs. Water ran from his hair down the back of his neck. None of it mattered because Caleb was watching him with an expression Ethan couldn't quite name—something between concern and hunger, restraint and need.

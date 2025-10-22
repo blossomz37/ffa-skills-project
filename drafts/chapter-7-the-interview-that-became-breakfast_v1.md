@@ -1,5 +1,3 @@
-# Chapter 7 – The Interview That Became Breakfast
-
 Steam ghosted across the café window, and Ethan's reflection smiled back at him like someone half in love with the morning.
 
 He caught himself mid-smile and tried to dial it back to something more professional, more journalist-doing-fieldwork and less man-waiting-for-a-maybe-date. It didn't work. His reflection kept grinning like an idiot, backlit by the warm glow of Howl & Bean's interior and probably sending signals to every person on Main Street that Ethan Cole was having *feelings*.

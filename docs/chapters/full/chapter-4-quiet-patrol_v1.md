@@ -1,5 +1,3 @@
-# Chapter 4 – Quiet Patrol
-
 The ward stone was warm beneath Caleb's palm, as if the hill kept its own heartbeat to match his.
 
 He stood at the eastern edge of the ridge trail, fingers pressed against the smooth river rock that had been set into the earth decades before his birth. The stone hummed with low-frequency magic—not the flashy kind that tourists came to see during festival week, but the old kind. The kind that lived in bones and roots and the slow turning of seasons. Ward magic that held boundaries not through force but through patient, constant presence.

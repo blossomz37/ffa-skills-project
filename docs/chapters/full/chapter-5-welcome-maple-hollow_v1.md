@@ -1,5 +1,3 @@
-# Chapter 5 – Welcome, Maple Hollow
-
 Ethan's breath fogged the edge of the mic, ghosting his first word across a hundred listening faces.
 
 He stood on the makeshift stage in Harvest Square—really just a platform of reinforced plywood that the town erected every year, but sturdy enough to hold two people, a mic stand, and the weight of a hundred expectations. The October afternoon had deepened into early evening, the sky that particular shade of blue that came just before true darkness. Lanterns hung from every available surface, not yet lit but waiting, their glass catching the last of the daylight like promises.

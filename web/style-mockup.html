@@ -32,33 +32,25 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Lora:wght@400;500&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Lora:wght@400;500&display=swap');
+        
         :root {
-            /* Theme palette (from mockup) */
+            /* Cozy Supernatural Theme Colors */
             --warm-cream: #F5EFE7;
             --honey-amber: #D4A574;
-            --golden-glow: #F4D58D;
             --twilight-cocoa: #2D1810;
-            --mid-cocoa: #3D2820;
-            --deep-cocoa: #2D1810;
-            --autumn-rust: #B8733E;
-            --rust: #8B5A2B;
             --soft-moonlight: #FFF8E7;
+            --autumn-rust: #B8733E;
             --misty-lavender: #D4C4D8;
             --warm-charcoal: #3D3028;
+            --golden-glow: #F4D58D;
             --soft-sage: #B8C5B0;
             --cozy-rose: #D4A5A5;
-            /* Fog tones */
-            --fog-a: rgba(245, 239, 231, 0.03);
-            --fog-b: rgba(245, 239, 231, 0.08);
-            --fog-c: rgba(245, 239, 231, 0.03);
         }
         
         body {
             font-family: 'Source Sans Pro', sans-serif;
-            color: var(--warm-cream);
-            background: linear-gradient(180deg, var(--twilight-cocoa) 0%, var(--mid-cocoa) 50%, var(--twilight-cocoa) 100%);
+            background: linear-gradient(180deg, #2d1810 0%, #3d2820 50%, #2d1810 100%);
         }
         
         .heading-font {
@@ -66,7 +58,10 @@
         }
         
         .fog-effect {
-            background: linear-gradient(180deg, var(--fog-a) 0%, var(--fog-b) 50%, var(--fog-c) 100%);
+            background: linear-gradient(180deg, 
+                rgba(245, 239, 231, 0.03) 0%, 
+                rgba(245, 239, 231, 0.08) 50%, 
+                rgba(245, 239, 231, 0.03) 100%);
             animation: fogDrift 20s ease-in-out infinite;
         }
         
@@ -94,7 +89,7 @@
         }
         
         .autumn-gradient {
-            background: linear-gradient(135deg, var(--honey-amber) 0%, var(--autumn-rust) 50%, var(--rust) 100%);
+            background: linear-gradient(135deg, #D4A574 0%, #B8733E 50%, #8B5A2B 100%);
         }
         
         .card-hover {
@@ -118,29 +113,12 @@
         .chapter-content p { margin-bottom: 1.25em; }
     </style>
 </head>
-<body>
+<body class="text-[#F5EFE7]">
     <div id="root"></div>
     
     <script type="text/babel">
         const { useState, useEffect } = React;
         
-        // Shared chapters list for navigation and reader
-        const CHAPTERS = [
-            { id: 1,  title: 'Chapter 1 — Homecoming Fog',                 file: 'chapter-1-homecoming-fog.md',               blurb: 'Ethan returns to Maple Hollow through the mist.' },
-            { id: 2,  title: 'Chapter 2 — Alpha at the Bar',               file: 'chapter-2-alpha-at-the-bar.md',             blurb: 'Old wounds resurface under warm tavern lights.' },
-            { id: 3,  title: 'Chapter 3 — Lanterns and Laughter',          file: 'chapter-3-lanterns-and-laughter.md',        blurb: 'Festival magic begins at dusk in Harvest Square.' },
-            { id: 4,  title: 'Chapter 4 — Quiet Patrol',                    file: 'chapter-4-quiet-patrol.md',                 blurb: 'Caleb walks the town’s boundary and hears what needs care.' },
-            { id: 5,  title: 'Chapter 5 — Welcome, Maple Hollow',          file: 'chapter-5-welcome-maple-hollow.md',         blurb: 'Opening ceremony—welcome becomes a shared promise.' },
-            { id: 6,  title: 'Chapter 6 — Late-Shift Glow',                 file: 'chapter-6-late-shift-glow.md',              blurb: 'A quiet café becomes a place for careful honesty.' },
-            { id: 7,  title: 'Chapter 7 — The Interview That Became Breakfast', file: 'chapter-7-the-interview-that-became-breakfast.md', blurb: 'Questions turn into truths at Aunt Sophie’s table.' },
-            { id: 8,  title: 'Chapter 8 — Storm Signs',                      file: 'chapter-8-storm-signs.md',                  blurb: 'The weather turns and so do expectations.' },
-            { id: 9,  title: 'Chapter 9 — Shelter and Sparks',              file: 'chapter-9-shelter-and-sparks.md',           blurb: 'Forced closeness reveals warmth neither expected.' },
-            { id: 10, title: 'Chapter 10 — Words on Fire',                  file: 'chapter-10-words-on-fire.md',               blurb: 'Truths ignite; the town listens.' },
-            { id: 11, title: 'Chapter 11 — Bridges Before Dawn',            file: 'chapter-11-bridges-before-dawn.md',         blurb: 'Before sunrise, they choose how to cross.' },
-            { id: 12, title: 'Chapter 12 — Flour and Firelight',            file: 'chapter-12-flour-and-firelight.md',         blurb: 'Domestic intimacy, hands steady in shared work.' },
-            { id: 13, title: 'Chapter 13 — The Morning After the Moon',     file: 'chapter-13-the-morning-after-the-moon.md',  blurb: 'New beginnings in the soft light.' },
-        ];
-
         const MoonlightPromo = () => {
             const [activeTab, setActiveTab] = useState('story');
             const [hoveredChapter, setHoveredChapter] = useState(null);
@@ -187,16 +165,16 @@
             return (
                 <div className="min-h-screen">
                     {/* Hero Section */}
-                    <div className="relative h-screen flex items-center justify-center overflow-hidden">
+                    < className="relative h-screen flex items-center justify-center overflow-hidden">
                         <div className="absolute inset-0 fog-effect"></div>
                         
                         {/* Decorative Moon */}
-                        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-[var(--golden-glow)] to-[var(--honey-amber)] moon-glow opacity-80"></div>
+                        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-[#F4D58D] to-[#D4A574] moon-glow opacity-80"></div>
                         
                         <div className="relative z-10 text-center px-6 fade-in">
                             {/* Book Cover Placeholder - ADD YOUR IMAGE URL HERE */}
                             <div className="mb-8 flex justify-center">
-                                <div className="w-64 h-96 bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
+                                <div className="w-64 h-96 bg-gradient-to-br from-amber-900/60 to-orange-900/60 rounded-lg border-2 border-amber-600 shadow-2xl overflow-hidden flex items-center justify-center">
                                     <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maplewood-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
                                 </div>
                             </div>
@@ -223,7 +201,7 @@
                     {/* Navigation Tabs */}
                     <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
                         <div className="max-w-6xl mx-auto px-6 py-4">
-                            <div className="flex gap-4 items-center justify-center md:justify-between flex-wrap">
+                            <div className="flex gap-6 justify-center flex-wrap">
                                 {['story', 'chapters', 'characters', 'journey', 'themes'].map(tab => (
                                     <button
                                         key={tab}
@@ -237,28 +215,6 @@
                                         {tab.charAt(0).toUpperCase() + tab.slice(1)}
                                     </button>
                                 ))}
-
-                                {/* Chapters quick-jump dropdown */}
-                                <div className="w-full md:w-auto md:ml-auto">
-                                    <label htmlFor="chapterJump" className="sr-only">Jump to chapter</label>
-                                    <select
-                                        id="chapterJump"
-                                        className="w-full md:w-auto bg-zinc-900/40 border border-amber-800/30 text-amber-200 rounded px-3 py-2"
-                                        onChange={(e) => {
-                                            const idx = Number(e.target.value);
-                                            if (!Number.isNaN(idx)) {
-                                                setActiveTab('chapters');
-                                                window.dispatchEvent(new CustomEvent('chapters:select', { detail: idx }));
-                                            }
-                                        }}
-                                        defaultValue=""
-                                    >
-                                        <option value="" disabled>Jump to chapter…</option>
-                                        {CHAPTERS.map((c, idx) => (
-                                            <option key={c.id} value={idx}>{c.title}</option>
-                                        ))}
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -598,67 +554,32 @@
         // Simple component to render chapter previews from /chapters/*.md
         const ChaptersViewer = () => {
             const [selected, setSelected] = useState(0);
-            const [contentFull, setContentFull] = useState('');
-            const [contentPreview, setContentPreview] = useState('');
+            const [content, setContent] = useState('');
             const [loading, setLoading] = useState(false);
             const [error, setError] = useState('');
             const [counts, setCounts] = useState({});
             const [showFull, setShowFull] = useState(false);
-            const [fallbackNote, setFallbackNote] = useState('');
-            const [currentPath, setCurrentPath] = useState('');
 
-            const chapters = CHAPTERS;
-
-            // Respond to quick-jump events from the navbar
-            useEffect(() => {
-                const handler = (e) => {
-                    const idx = e.detail;
-                    if (typeof idx === 'number' && idx >= 0 && idx < chapters.length) {
-                        setSelected(idx);
-                        setShowFull(false);
-                        // Scroll the reader into view for convenience
-                        try {
-                            document.getElementById('root')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        } catch {}
-                    }
-                };
-                window.addEventListener('chapters:select', handler);
-                return () => window.removeEventListener('chapters:select', handler);
-            }, [chapters.length]);
+            const chapters = [
+                { id: 1, title: 'Chapter 1 — Homecoming Fog', file: 'chapter-1-homecoming-fog.md', blurb: 'Ethan returns to Maple Hollow through the mist.' },
+                { id: 2, title: 'Chapter 2 — Alpha at the Bar', file: 'chapter-2-alpha-at-the-bar.md', blurb: 'Old wounds resurface under warm tavern lights.' },
+                // Add more entries here and drop corresponding .md files into /docs/chapters/
+            ];
 
             // Load markdown for the selected chapter
             useEffect(() => {
                 const load = async () => {
-                    setLoading(true); setError(''); setContentFull(''); setContentPreview(''); setFallbackNote(''); setCurrentPath('');
+                    setLoading(true); setError(''); setContent('');
                     try {
                         const preview = chapters[selected]?.file;
                         const draft = draftsFilenameFor(preview);
-                        // Attempt primary target based on toggle
-                        const primary = showFull ? `full/${draft}` : preview;
+                        const f = showFull ? `full/${draft}` : preview;
+                        // Build a robust URL that works on GitHub Pages and local servers
                         const base = new URL(window.location.href);
-                        const tryFetch = async (rel) => {
-                            const u = new URL(`chapters/${rel}`, base);
-                            const r = await fetch(u);
-                            return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' , rel };
-                        };
-
-                        let attempt = await tryFetch(primary);
-                        // Fallback: if preview missing and not in showFull mode, try full draft automatically
-                        if (!attempt.ok && !showFull) {
-                            const alt = `full/${draft}`;
-                            const altAttempt = await tryFetch(alt);
-                            if (altAttempt.ok) {
-                                attempt = altAttempt;
-                                setFallbackNote('Preview not available; showing full draft.');
-                            }
-                        }
-
-                        if (!attempt.ok) {
-                            throw new Error(`Failed to load ${primary} (${attempt.status})`);
-                        }
-
-                        setCurrentPath(attempt.rel);
-                        let md = attempt.text;
+                        const url = new URL(`chapters/${f}`, base);
+                        const res = await fetch(url);
+                        if (!res.ok) throw new Error(`Failed to load ${f} (${res.status})`);
+                        let md = await res.text();
                         // Inject version into first heading if possible
                         const verMatch = draft.match(/_v(\d+)\.md$/);
                         const ver = verMatch ? `v${verMatch[1]}` : '';
@@ -674,26 +595,7 @@
                             }
                         }
                         const html = DOMPurify.sanitize(marked.parse(md));
-                        setContentFull(html);
-                        // Build a preview with first two paragraphs (and keep the first heading if present)
-                        try {
-                            const container = document.createElement('div');
-                            container.innerHTML = html;
-                            const out = document.createElement('div');
-                            const heading = container.querySelector('h1, h2, h3');
-                            if (heading) out.appendChild(heading.cloneNode(true));
-                            const paragraphs = container.querySelectorAll('p');
-                            let added = 0;
-                            for (const p of paragraphs) {
-                                out.appendChild(p.cloneNode(true));
-                                added++;
-                                if (added >= 2) break;
-                            }
-                            const previewHtml = out.innerHTML || html;
-                            setContentPreview(previewHtml);
-                        } catch {
-                            setContentPreview(html);
-                        }
+                        setContent(html);
                     } catch (e) {
                         let msg = e.message || 'Failed to load preview.';
                         if (window.location.protocol === 'file:') {
@@ -777,9 +679,6 @@
                             </div>
                             <div className="text-amber-400 text-xs italic">Paragraph spacing increased for easier reading</div>
                         </div>
-                        {fallbackNote && (
-                            <p className="text-amber-300 text-sm mb-2">{fallbackNote}</p>
-                        )}
                         <div className="bg-zinc-900/60 border border-amber-800/30 rounded-lg p-6 min-h-[24rem]">
                             {loading && (
                                 <p className="text-amber-300">Loading preview…</p>
@@ -788,29 +687,12 @@
                                 <p className="text-red-300">{error}</p>
                             )}
                             {!loading && !error && (
-                                <article className="chapter-content prose prose-invert max-w-none prose-p:mb-6" dangerouslySetInnerHTML={{ __html: showFull ? contentFull : (contentPreview || contentFull) }} />
+                                <article className="chapter-content prose prose-invert max-w-none prose-p:mb-6" dangerouslySetInnerHTML={{ __html: content }} />
                             )}
                         </div>
-                        {!loading && !error && !showFull && contentFull && contentPreview && contentPreview !== contentFull && (
-                            <div className="mt-3">
-                                <button
-                                    onClick={() => setShowFull(true)}
-                                    className="px-4 py-2 rounded bg-amber-700 text-white hover:bg-amber-600 transition"
-                                >
-                                    View more
-                                </button>
-                            </div>
-                        )}
-                        <div className="mt-4 flex items-center justify-between">
-                            <button
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="px-4 py-2 rounded bg-amber-700 text-white hover:bg-amber-600 transition"
-                                aria-label="Back to top"
-                            >
-                                Back to top
-                            </button>
+                        <div className="mt-4 text-right">
                             <a
-                                href={`chapters/${currentPath || (showFull ? 'full/' + draftsFilenameFor(chapters[selected]?.file) : chapters[selected]?.file)}`}
+                                href={`chapters/${showFull ? 'full/' + draftsFilenameFor(chapters[selected]?.file) : chapters[selected]?.file}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-amber-300 hover:text-amber-100 underline"
@@ -822,7 +704,6 @@
                 </div>
             );
         };
-
 
         ReactDOM.render(<MoonlightPromo />, document.getElementById('root'));
     </script>

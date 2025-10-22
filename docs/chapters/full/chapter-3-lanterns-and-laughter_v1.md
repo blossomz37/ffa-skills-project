@@ -1,5 +1,3 @@
-# Chapter 3 – Lanterns and Laughter
-
 The first lantern flickered on with a tiny gasp of flame, and the square exhaled like it had been holding the day for him.
 
 Ethan stood at the edge of Harvest Square, digital recorder tucked in his jacket pocket, watching the transformation. The afternoon had given way to that peculiar autumn twilight where the world turned amber and gold, where shadows lengthened into something more than absence of light. Vendors finished setting up their booths—carved pumpkins arranged just so, bundles of dried corn stalks leaning against table legs, handmade quilts draped over wooden frames like flags claiming territory.

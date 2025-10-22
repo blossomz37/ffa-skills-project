@@ -1,5 +1,3 @@
-# Chapter 11 – Bridges Before Dawn
-
 Mist hung over the river like unsent words.
 
 Ethan stood at the center of Maple Ridge Bridge, hands braced against the wooden railing, watching fog curl and drift across black water. The wood was cold beneath his palms, damp with pre-dawn condensation. Each breath left his lungs visible, small clouds that vanished into the larger haze surrounding him.

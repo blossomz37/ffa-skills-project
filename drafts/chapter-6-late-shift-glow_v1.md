@@ -1,5 +1,3 @@
-# Chapter 6 – Late Shift Glow
-
 The tavern smelled like cinnamon and applause, the kind that lingered after everyone else had gone home.
 
 Caleb stood behind the bar, running a cloth over the worn oak surface in slow, methodical circles. The wood was warm beneath his hands, polished smooth by decades of similar motions—bartenders closing up, wiping away the evidence of celebration, preparing the space for tomorrow's needs. Outside, the festival continued in muted form—distant music from the square, occasional laughter from people walking home, the soft glow of lanterns painting the street in amber.

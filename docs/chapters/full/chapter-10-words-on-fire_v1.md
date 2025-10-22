@@ -1,5 +1,3 @@
-# Chapter 10 – Words on Fire
-
 The Gazette smelled like wet paper and regret.
 
 Caleb pushed through the front door mid-morning, intending to surprise Ethan with coffee and maybe steal a few minutes of unscheduled time before his afternoon patrol. He'd woken that morning with Ethan still asleep beside him, face soft in the early light, one hand curled against Caleb's chest. He'd watched him for a long moment before forcing himself out of bed to chop wood—anything to burn off the restless, joyful energy that came from finally, *finally* having what he'd wanted for twelve years.

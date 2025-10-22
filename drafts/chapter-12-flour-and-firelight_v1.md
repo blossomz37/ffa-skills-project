@@ -1,5 +1,3 @@
-# Chapter 12 – Flour and Firelight
-
 Lantern light painted the crowd gold as Caleb stepped forward, heart beating like a drum beneath the music.
 
 The Harvest Square stage had been built over three days, solid oak planks fitted together by pack members who knew how to work wood the old way—no power tools, just hands and craft and the steady rhythm of labor. Now it stood draped in ribbons the color of harvest: amber, crimson, deep gold. Lanterns hung from every post, their flames dancing behind curved glass, casting shadows that stretched and swayed with each gust of October wind. The Hollow Choir stood to one side, instruments at the ready, voices humming low in anticipation. The scent of applewood smoke mingled with roasted corn, cinnamon, and the sharper bite of pine resin from the freshly cut garlands.
