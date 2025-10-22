@@ -141,8 +141,30 @@
             { id: 13, title: 'Chapter 13 — The Morning After the Moon',     file: 'chapter-13-the-morning-after-the-moon.md',  blurb: 'New beginnings in the soft light.' },
         ];
 
+        // Fix common mojibake sequences from mis-decoded UTF-8 smart punctuation
+        const fixMojibake = (s) => {
+            if (!s || typeof s !== 'string') return s;
+            return s
+                .replace(/â€™/g, '’')  // right single quote
+                .replace(/â€˜/g, '‘')  // left single quote
+                .replace(/â€œ/g, '“')  // left double quote
+                .replace(/â€/g, '”')  // right double quote
+                .replace(/â€“/g, '–')  // en dash
+                .replace(/â€”/g, '—')  // em dash
+                .replace(/â€¦/g, '…')  // ellipsis
+                .replace(/Â /g, ' ')   // stray non-breaking space marker
+                ;
+        };
+
         const MoonlightPromo = () => {
-            const [activeTab, setActiveTab] = useState('story');
+            const tabs = ['home', 'story', 'chapters', 'characters', 'journey', 'themes'];
+            const initialTab = (() => {
+                try {
+                    const h = window.location.hash ? window.location.hash.slice(1) : '';
+                    return tabs.includes(h) ? h : 'home';
+                } catch { return 'home'; }
+            })();
+            const [activeTab, setActiveTab] = useState(initialTab);
             const [hoveredChapter, setHoveredChapter] = useState(null);
             const [selectedQuote, setSelectedQuote] = useState(0);
             
@@ -183,48 +205,37 @@
                 }, 6000);
                 return () => clearInterval(interval);
             }, []);
+
+            // Keep URL hash in sync for deep-linking (#home, #chapters etc.)
+            useEffect(() => {
+                try {
+                    const target = `#${activeTab}`;
+                    if (window.location.hash !== target) {
+                        history.replaceState(null, '', target);
+                    }
+                } catch {}
+            }, [activeTab]);
+
+            // Respond to browser hash changes (back/forward)
+            useEffect(() => {
+                const onHash = () => {
+                    try {
+                        const h = window.location.hash ? window.location.hash.slice(1) : '';
+                        if (tabs.includes(h)) setActiveTab(h);
+                    } catch {}
+                };
+                window.addEventListener('hashchange', onHash);
+                return () => window.removeEventListener('hashchange', onHash);
+            }, []);
             
             return (
                 <div className="min-h-screen">
-                    {/* Hero Section */}
-                    <div className="relative h-screen flex items-center justify-center overflow-hidden">
-                        <div className="absolute inset-0 fog-effect"></div>
-                        
-                        {/* Decorative Moon */}
-                        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-[var(--golden-glow)] to-[var(--honey-amber)] moon-glow opacity-80"></div>
-                        
-                        <div className="relative z-10 text-center px-6 fade-in">
-                            {/* Book Cover Placeholder - ADD YOUR IMAGE URL HERE */}
-                            <div className="mb-8 flex justify-center">
-                                <div className="w-64 h-96 bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
-                                    <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maplewood-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
-                                </div>
-                            </div>
-                            
-                            <h1 className="heading-font text-7xl md:text-8xl font-bold mb-6 text-amber-100">
-                                Moonlight on Maple Hollow
-                            </h1>
-                            <p className="text-2xl md:text-3xl text-amber-200 mb-4 italic">
-                                A Paranormal Romance
-                            </p>
-                            <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8">
-                                When a skeptical journalist returns to his haunted hometown, he rekindles a forbidden bond with the local Alpha—and discovers that some loves are worth the risk of being seen.
-                            </p>
-                            <div className="flex gap-4 justify-center flex-wrap text-sm">
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Small Town</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Shifter Romance</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Second Chance</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Slow Burn</span>
-                                <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Found Family</span>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Navigation Tabs (sticky, always at top) */}
                     
-                    {/* Navigation Tabs */}
                     <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
                         <div className="max-w-6xl mx-auto px-6 py-4">
                             <div className="flex gap-4 items-center justify-center md:justify-between flex-wrap">
-                                {['story', 'chapters', 'characters', 'journey', 'themes'].map(tab => (
+                                {['home', 'chapters', 'story', 'characters', 'journey', 'themes'].map(tab => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
@@ -248,6 +259,7 @@
                                             const idx = Number(e.target.value);
                                             if (!Number.isNaN(idx)) {
                                                 setActiveTab('chapters');
+                                                try { history.replaceState(null, '', '#chapters'); } catch {}
                                                 window.dispatchEvent(new CustomEvent('chapters:select', { detail: idx }));
                                             }
                                         }}
@@ -262,6 +274,35 @@
                             </div>
                         </div>
                     </div>
+
+                    {/* Home Section (previously above the navbar) */}
+                    {activeTab === 'home' && (
+                        <div className="relative h-screen flex items-center justify-center overflow-hidden">
+                            <div className="absolute inset-0 fog-effect"></div>
+                            {/* Decorative Moon */}
+                            <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-[var(--golden-glow)] to-[var(--honey-amber)] moon-glow opacity-80"></div>
+                            <div className="relative z-10 text-center px-6 fade-in">
+                                {/* Book Cover Placeholder - ADD YOUR IMAGE URL HERE */}
+                                <div className="mb-8 flex justify-center">
+                                    <div className="w-64 h-96 bg-gradient-to-br from-[#D4A574]/60 to-[#B8733E]/60 rounded-lg border-2 shadow-2xl overflow-hidden flex items-center justify-center" style={{ borderColor: 'var(--honey-amber)' }}>
+                                        <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/maplewood-cover.png" alt="Moonlight on Maple Hollow Book Cover" className="w-full h-full object-cover rounded-lg" />
+                                    </div>
+                                </div>
+                                <h1 className="heading-font text-7xl md:text-8xl font-bold mb-6 text-amber-100">Moonlight on Maple Hollow</h1>
+                                <p className="text-2xl md:text-3xl text-amber-200 mb-4 italic">A Paranormal Romance</p>
+                                <p className="text-xl text-amber-300 max-w-2xl mx-auto mb-8">
+                                    When a skeptical journalist returns to his haunted hometown, he rekindles a forbidden bond with the local Alpha—and discovers that some loves are worth the risk of being seen.
+                                </p>
+                                <div className="flex gap-4 justify-center flex-wrap text-sm">
+                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Small Town</span>
+                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Shifter Romance</span>
+                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Second Chance</span>
+                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Slow Burn</span>
+                                    <span className="px-4 py-2 bg-amber-900/50 rounded-full border border-amber-600">Found Family</span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     
                     {/* Story Section */}
                     {activeTab === 'story' && (
@@ -658,7 +699,7 @@
                         }
 
                         setCurrentPath(attempt.rel);
-                        let md = attempt.text;
+                        let md = fixMojibake(attempt.text);
                         // Inject version into first heading if possible
                         const verMatch = draft.match(/_v(\d+)\.md$/);
                         const ver = verMatch ? `v${verMatch[1]}` : '';
