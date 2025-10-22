@@ -1,0 +1,7 @@
+Title: Character Card — Ethan
+
+Prompt: cozy portrait of Ethan in autumn, contemplative journalist vibe, holding a coffee cup and a small digital voice recorder, warm sweater layers, soft flannel textures, gentle smile in moonlit eyes, background hints of misty small-town street with lantern glow, intimate warm color treatment, romantic yet grounded
+
+Negative: text, watermark, logo, exaggerated muscles, cartoonish proportions, sci‑fi gear, harsh flash, acne scars extreme, low-res
+
+Params: aspect=1:1 square; style=natural portrait, painterly realism, soft grain; palette=amber gold, russet brown, deep forest green, silver moonlight accents; lighting=lantern key + moon rim, soft bokeh; camera=85mm portrait; composition=waist-up centered; medium=character card illustration

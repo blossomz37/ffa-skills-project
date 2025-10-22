@@ -1,0 +1,7 @@
+Title: Cover Option 2 — Atmospheric Scene (Hands Almost Touching)
+
+Prompt: close-up of two hands almost touching over weathered wood (bar or bridge), lantern glow illuminating the space between fingers, soft misty background with blurred small-town autumn lights, subtle maple leaf shapes in bokeh, flannel cuff texture, intimate hopeful mood, gentle breath in cool air, silver moonlight highlights
+
+Negative: text, watermark, logo, dirty nails, gore, explicit content, sci‑fi tech, harsh flash, extreme contrast, low-res, motion blur, cluttered background
+
+Params: aspect=2:3 vertical; style=cinematic macro, detailed skin, painterly realism; palette=amber gold, copper lantern glow, russet brown, deep forest green, night-sky blue accents; lighting=lantern key light + moonlight rim; camera=50mm macro/close-up, shallow depth of field; composition=hands centered with negative space for title; medium=illustrated cover art

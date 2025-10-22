@@ -1,0 +1,7 @@
+Title: Character Card — Caleb
+
+Prompt: warm protective portrait of Caleb in autumn flannel, sturdy and gentle presence, moonlight in eyes, subtle ward ribbon tied on wrist, background with misty forest edge and town lights, lantern glow highlights, intimate and trustworthy mood
+
+Negative: text, watermark, logo, military gear, sci‑fi tech, aggressive expression, harsh contrast, low-res, over-sharpened
+
+Params: aspect=1:1 square; style=natural portrait, painterly realism; palette=burnt orange, deep forest green, amber gold, night-sky blue accents; lighting=soft moonlight rim + lantern fill, shallow DOF; camera=85mm portrait; composition=shoulders-up centered; medium=character card illustration

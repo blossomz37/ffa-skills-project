@@ -1,0 +1,7 @@
+Title: Social Template — TikTok Vertical Vibe (9:16)
+
+Prompt: vertical cozy small-town autumn vibes, moonlight through mist, lantern glow along a bridge with ward ribbons, warm flannel textures and maple leaves, cinematic depth, movement-friendly composition with clear central subject area and safe margins for captions
+
+Negative: text, logos, watermarks, neon, harsh HDR, crowded frame, low-res
+
+Params: aspect=9:16; style=cinematic atmospheric; palette=burnt orange, amber gold, deep forest green, night-sky blue, silver moonlight; lighting=soft moon + lantern pools; composition=vertical leading lines, subject centered with breathing room; medium=social short-form background

@@ -1,0 +1,7 @@
+Title: Chapter Teaser — Ch 10: Words on Fire (Harsh Sunlight + Torn Paper)
+
+Prompt: stark midday sunlight cutting across a desk, torn paper and notes scattered, a digital recorder casting a sharp shadow, hints of heat ripple like summer mirage, raw truth and consequence mood, subtle maple leaf motif in shadow edges
+
+Negative: text, logos, watermarks, flames literal, neon, sci‑fi, messy trash, low-res, grunge overlay
+
+Params: aspect=4:5 portrait or 16:9 landscape; style=minimal cinematic; palette=warm whites, amber highlights, muted forest green accents, cool shadow blues; lighting=hard sunlight beam + deep shadow contrast; composition=diagonal light strip leading eye; medium=chapter teaser art

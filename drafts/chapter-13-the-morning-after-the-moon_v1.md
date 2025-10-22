@@ -1,7 +1,8 @@
 ---
 chapter: 13
 title: "The Morning After the Moon"
-status: not started
+status: outline
+word_count: 26
 target_word_count: 5000
 act: 3
 ---

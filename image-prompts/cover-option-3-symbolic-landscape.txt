@@ -1,0 +1,7 @@
+Title: Cover Option 3 — Symbolic Landscape
+
+Prompt: full moon rising over a cozy small town in autumn, gentle fog over rooftops, elegant bridge in foreground with colorful ward ribbons fluttering, two distant figures walking together on the bridge, lanterns glowing along the path, maple leaves in the air, magical realism, serene and romantic atmosphere
+
+Negative: text, watermark, logo, cars, modern billboards, sci‑fi elements, neon glow, harsh HDR, low-res, oversharpening
+
+Params: aspect=2:3 vertical; style=storybook cinematic, painterly realism; palette=burnt orange, amber gold, deep forest green, night-sky blue, silver moonlight; lighting=moonlight ambience + lantern pools of light; camera=wide 28mm, gentle perspective; composition=bridge leading lines toward moon; medium=illustrated cover art

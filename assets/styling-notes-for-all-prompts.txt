@@ -1,0 +1,19 @@
+STYLING NOTES FOR ALL PROMPTS:
+Additional elements to consider adding:
+
+"Cover typography space at top and bottom"
+"Slightly muted/vintage color treatment"
+"Painterly texture overlay"
+"Film grain for warmth"
+"Glowing lanterns as light sources"
+"Subtle magic shimmer effect"
+
+Avoid in prompts:
+
+Cartoonish or anime styles
+Overly literal werewolf imagery
+Cliché shirtless abs
+Generic stock photo look
+Harsh lighting or cold tones
+
+Aspect ratio: "2:3 aspect ratio for book cover" or "vertical book cover orientation"

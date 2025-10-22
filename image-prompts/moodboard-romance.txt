@@ -1,0 +1,7 @@
+Title: Mood Board — Slow-Burn Romance
+
+Prompt: intimate romantic mood board, close-up hands, shared coffee steam, soft smiles, silhouettes at moonlit bridge, flannel blankets, notes and ribbon keepsakes, warm lamplight glow, gentle mist, tender and hopeful tone
+
+Negative: explicit content, kissing close-up, text, watermarks, logos, neon tones, harsh flash, low-res
+
+Params: aspect=4:3 or 1:1; style=photographic with painterly overlays; palette=amber gold, burnt orange, deep forest green, silver moonlight; lighting=soft, warm, backlit accents; composition=clean collage with breathing room; medium=mood board
