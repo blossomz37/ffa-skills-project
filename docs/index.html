@@ -559,13 +559,20 @@
                     setLoading(true); setError(''); setContent('');
                     try {
                         const f = chapters[selected]?.file;
-                        const res = await fetch(`chapters/${f}`);
+                        // Build a robust URL that works on GitHub Pages and local servers
+                        const base = new URL(window.location.href);
+                        const url = new URL(`chapters/${f}`, base);
+                        const res = await fetch(url);
                         if (!res.ok) throw new Error(`Failed to load ${f} (${res.status})`);
                         const md = await res.text();
                         const html = DOMPurify.sanitize(marked.parse(md));
                         setContent(html);
                     } catch (e) {
-                        setError(e.message || 'Failed to load preview.');
+                        let msg = e.message || 'Failed to load preview.';
+                        if (window.location.protocol === 'file:') {
+                            msg += ' Tip: When opening this file directly (file://), browsers block fetch. Run a local server from the docs/ folder (e.g., python3 -m http.server) or view via GitHub Pages.';
+                        }
+                        setError(msg);
                     } finally {
                         setLoading(false);
                     }
