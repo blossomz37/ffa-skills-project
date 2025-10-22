@@ -319,7 +319,7 @@
                 <div className="min-h-screen">
                     {/* Navigation Tabs (sticky, always at top) */}
                     
-                    <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
+                    <div className="md:sticky md:top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
                         <div className="max-w-6xl mx-auto px-6 py-4">
                             <div className="flex gap-2 md:gap-4 items-center justify-center md:justify-between flex-wrap">
                                 {[
@@ -374,7 +374,7 @@
 
                     {/* Home Section (previously above the navbar) */}
                     {activeTab === 'home' && (
-                        <div className="relative h-screen flex items-center justify-center overflow-hidden z-40">
+                        <div className="relative min-h-screen md:h-screen flex items-start md:items-center justify-center overflow-hidden z-40 pt-16 md:pt-0">
                             <div className="absolute inset-0" style={{
                                 backgroundImage: 'url(https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/moonlight-on-maple-hollow-7.png)',
                                 backgroundSize: 'cover',
