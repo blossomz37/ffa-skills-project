@@ -269,18 +269,28 @@
                     
                     <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
                         <div className="max-w-6xl mx-auto px-6 py-4">
-                            <div className="flex gap-4 items-center justify-center md:justify-between flex-wrap">
-                                {['home', 'story', 'supernatural', 'characters', 'journey', 'themes', 'chapters'].map(tab => (
+                            <div className="flex gap-2 md:gap-4 items-center justify-center md:justify-between flex-wrap">
+                                {[
+                                    { key: 'home', label: 'Home', icon: '🏠' },
+                                    { key: 'story', label: 'Story', icon: '📖' },
+                                    { key: 'supernatural', label: 'Supernatural', icon: '🌙' },
+                                    { key: 'characters', label: 'Characters', icon: '👥' },
+                                    { key: 'journey', label: 'Journey', icon: '🗺️' },
+                                    { key: 'themes', label: 'Themes', icon: '✨' },
+                                    { key: 'chapters', label: 'Chapters', icon: '📚' }
+                                ].map(tab => (
                                     <button
-                                        key={tab}
-                                        onClick={() => setActiveTab(tab)}
-                                        className={`px-6 py-2 rounded-lg transition-all ${
-                                            activeTab === tab 
+                                        key={tab.key}
+                                        onClick={() => setActiveTab(tab.key)}
+                                        className={`px-3 md:px-6 py-2 rounded-lg transition-all text-sm md:text-base ${
+                                            activeTab === tab.key 
                                                 ? 'bg-amber-700 text-white' 
                                                 : 'text-amber-300 hover:text-amber-100 hover:bg-amber-900/30'
                                         }`}
+                                        title={tab.label}
                                     >
-                                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                                        <span className="md:hidden">{tab.icon}</span>
+                                        <span className="hidden md:inline">{tab.label}</span>
                                     </button>
                                 ))}
 
@@ -570,7 +580,7 @@
                             <div className="grid md:grid-cols-3 gap-8 mb-16">
                                 {/* Ethan Card */}
                                 <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-slate-600 card-hover pt-16 card-texture-overlay">
-                                    <div className="flex items-center mb-6 justify-center flex-col text-center mt-[-4rem]">
+                                    <div className="flex items-center mb-6 justify-center flex-col text-center" style={{ transform: 'translateY(-80px)' }}>
                                         {/* Ethan Image Placeholder - ADD YOUR IMAGE URL HERE */}
                                         <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-amber-600 flex-shrink-0 shadow-lg">
                                             <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/mc-1-ethan-v2.png" alt="Ethan Cole" className="w-full h-full object-cover object-center scale-110" />
@@ -581,7 +591,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div className="space-y-4 text-amber-100/90">
+                                    <div className="space-y-4 text-amber-100/90" style={{ marginTop: '-60px' }}>
                                         <p>
                                             <span className="font-semibold text-amber-300">Age:</span> 30 | 
                                             <span className="font-semibold text-amber-300 ml-2">Species:</span> Human | 
@@ -603,7 +613,7 @@
                                 
                                 {/* Caleb Card */}
                                 <div className="bg-gradient-to-br from-amber-900 to-orange-900 p-8 rounded-lg border border-amber-700 card-hover pt-16 card-texture-overlay">
-                                    <div className="flex items-center mb-6 justify-center flex-col text-center mt-[-4rem]">
+                                    <div className="flex items-center mb-6 justify-center flex-col text-center" style={{ transform: 'translateY(-80px)' }}>
                                         {/* Caleb Image Placeholder - ADD YOUR IMAGE URL HERE */}
                                         <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-amber-400 flex-shrink-0 shadow-lg">
                                             <img src="https://xierykaufosmdkcxzfex.supabase.co/storage/v1/object/public/image-gen/mc-2-caleb-2.png" alt="Caleb Hawthorne" className="w-full h-full object-cover object-center scale-125" />
@@ -614,7 +624,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div className="space-y-4 text-amber-50/90">
+                                    <div className="space-y-4 text-amber-50/90" style={{ marginTop: '-60px' }}>
                                         <p>
                                             <span className="font-semibold text-amber-200">Age:</span> 32 | 
                                             <span className="font-semibold text-amber-200 ml-2">Species:</span> Werewolf | 
@@ -636,7 +646,7 @@
                                 
                                 {/* Supporting Cast Card */}
                                 <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 rounded-lg border border-zinc-600 card-hover pt-16 card-texture-overlay">
-                                    <div className="flex items-center mb-6 justify-center flex-col text-center mt-[-4rem]">
+                                    <div className="flex items-center mb-6 justify-center flex-col text-center" style={{ transform: 'translateY(-80px)' }}>
                                         {/* Community Icon */}
                                         <div className="w-28 h-28 rounded-2xl border-4 border-amber-500 flex-shrink-0 shadow-lg bg-gradient-to-br from-amber-900/80 to-orange-900/80 flex items-center justify-center">
                                             <span className="text-5xl">🌙</span>
@@ -647,7 +657,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div className="space-y-3 text-amber-100/90">
+                                    <div className="space-y-3 text-amber-100/90" style={{ marginTop: '-60px' }}>
                                         <div className="pb-3 border-b border-zinc-700">
                                             <p className="font-semibold text-amber-300">🔮 Mara - Pack Witch</p>
                                             <p className="text-sm">Maintains magical wards, reads the moon's intentions</p>
@@ -1001,45 +1011,57 @@
             };
 
             return (
-                <div className="grid md:grid-cols-3 gap-8">
-                    {/* List */}
-                    <div className="md:col-span-1 bg-zinc-900/60 border border-amber-800/30 rounded-lg p-4 card-texture-overlay">
-                        <h3 className="heading-font text-2xl text-amber-200 mb-4">Chapters</h3>
-                        <ul className="space-y-2">
-                            {chapters.map((c, idx) => (
-                                <li key={c.id}>
+                <div className="space-y-6">
+                    {/* Chapter Header Card */}
+                    <div className="bg-zinc-900/60 border border-amber-800/30 rounded-lg p-6 card-texture-overlay">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div className="flex-1">
+                                <h3 className="heading-font text-2xl font-bold text-amber-200 mb-2">
+                                    {chapters[selected]?.title}
+                                </h3>
+                                <p className="text-amber-300 italic mb-2">{chapters[selected]?.blurb}</p>
+                                <p className="text-amber-400 text-sm">
+                                    {wordsFor(chapters[selected]?.file) ? `${wordsFor(chapters[selected]?.file)} words` : 'Word count unavailable'}
+                                </p>
+                            </div>
+                            
+                            <div className="flex items-center gap-4">
+                                <div className="text-amber-300 text-sm">
+                                    <label className="inline-flex items-center gap-2 cursor-pointer select-none">
+                                        <input type="checkbox" checked={showFull} onChange={() => setShowFull(v => !v)} />
+                                        <span>Show full draft</span>
+                                    </label>
+                                </div>
+                                
+                                {/* Navigation arrows */}
+                                <div className="flex gap-2">
                                     <button
-                                        onClick={() => setSelected(idx)}
-                                        className={`w-full text-left p-3 rounded border transition-all ${
-                                            selected === idx
-                                                ? 'bg-amber-900/50 border-amber-600 text-amber-100'
-                                                : 'bg-zinc-900/40 border-amber-800/30 text-amber-300 hover:bg-amber-900/30'
-                                        }`}
+                                        onClick={() => setSelected(Math.max(0, selected - 1))}
+                                        disabled={selected === 0}
+                                        className="px-3 py-1 rounded bg-amber-700 text-white hover:bg-amber-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                        title="Previous chapter"
                                     >
-                                        <p className="font-semibold">{c.title}</p>
-                                        <p className="text-xs italic opacity-80 mt-0.5">{wordsFor(c.file) ? `${wordsFor(c.file)} words` : '—'}</p>
-                                        <p className="text-sm opacity-80">{c.blurb}</p>
+                                        ←
                                     </button>
-                                </li>
-                            ))}
-                        </ul>
+                                    <button
+                                        onClick={() => setSelected(Math.min(chapters.length - 1, selected + 1))}
+                                        disabled={selected === chapters.length - 1}
+                                        className="px-3 py-1 rounded bg-amber-700 text-white hover:bg-amber-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                        title="Next chapter"
+                                    >
+                                        →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Reader */}
-                    <div className="md:col-span-2">
-                        <div className="flex items-center justify-between mb-3">
-                            <div className="text-amber-300 text-sm">
-                                <label className="inline-flex items-center gap-2 cursor-pointer select-none">
-                                    <input type="checkbox" checked={showFull} onChange={() => setShowFull(v => !v)} />
-                                    <span>Show full draft</span>
-                                </label>
-                            </div>
-                            <div className="text-amber-400 text-xs italic">Paragraph spacing increased for easier reading</div>
-                        </div>
+                    {/* Reader Card */}
+                    <div>
                         {fallbackNote && (
                             <p className="text-amber-300 text-sm mb-2">{fallbackNote}</p>
                         )}
-                        <div className="bg-zinc-900/60 border border-amber-800/30 rounded-lg p-6 min-h-[24rem] card-texture-overlay">
+                        <div className="bg-zinc-900/60 border border-amber-800/30 rounded-lg p-6 min-h-[32rem] card-texture-overlay">
                             {loading && (
                                 <p className="text-amber-300">Loading preview…</p>
                             )}
@@ -1050,24 +1072,31 @@
                                 <article className="chapter-content prose prose-invert max-w-none prose-p:mb-6" dangerouslySetInnerHTML={{ __html: showFull ? contentFull : (contentPreview || contentFull) }} />
                             )}
                         </div>
-                        {!loading && !error && !showFull && contentFull && contentPreview && contentPreview !== contentFull && (
-                            <div className="mt-3">
+                        
+                        <div className="flex items-center justify-between mt-4">
+                            {!loading && !error && !showFull && contentFull && contentPreview && contentPreview !== contentFull && (
                                 <button
                                     onClick={() => setShowFull(true)}
                                     className="px-4 py-2 rounded bg-amber-700 text-white hover:bg-amber-600 transition"
                                 >
-                                    View more
+                                    View full chapter
+                                </button>
+                            )}
+                            <div className="ml-auto">
+                                <button
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    className="px-4 py-2 rounded bg-amber-700 text-white hover:bg-amber-600 transition"
+                                    aria-label="Back to top"
+                                >
+                                    Back to top
                                 </button>
                             </div>
-                        )}
-                        <div className="mt-4 flex items-center justify-start">
-                            <button
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="px-4 py-2 rounded bg-amber-700 text-white hover:bg-amber-600 transition"
-                                aria-label="Back to top"
-                            >
-                                Back to top
-                            </button>
+                        </div>
+                        
+                        <div className="mt-4 text-center">
+                            <p className="text-amber-400 text-xs italic">
+                                Use the dropdown menu above to jump to other chapters • Paragraph spacing increased for easier reading
+                            </p>
                         </div>
                     </div>
                 </div>
