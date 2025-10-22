@@ -93,6 +93,16 @@ The static promo site for "Moonlight on Maple Hollow" is published with GitHub P
 - Edit the page at `docs/index.html` (this is the canonical file used by GitHub Pages).
 - GitHub Pages is configured to deploy from the `main` branch, folder `/docs`.
 
+### Chapter previews
+
+- Previews are simple Markdown files under `docs/chapters/` (example files are provided):
+   - `docs/chapters/chapter-1-homecoming-fog.md`
+   - `docs/chapters/chapter-2-alpha-at-the-bar.md`
+- To add more previews:
+   1) Create a new `.md` file in `docs/chapters/`.
+   2) In `docs/index.html`, add an entry to the `chapters` array in `ChaptersViewer` with `title`, `file`, and a short `blurb`.
+   3) Commit and push to `main`; the site updates automatically.
+
 ### Preview locally
 
 - Open `docs/index.html` in a browser. It’s a fully static page that loads React, ReactDOM, and Tailwind via CDNs.

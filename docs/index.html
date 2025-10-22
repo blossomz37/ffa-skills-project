@@ -27,6 +27,9 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Markdown rendering and sanitization for chapter previews -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
@@ -189,7 +192,7 @@
                     <div className="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur border-b border-amber-800/30">
                         <div className="max-w-6xl mx-auto px-6 py-4">
                             <div className="flex gap-6 justify-center flex-wrap">
-                                {['story', 'characters', 'journey', 'themes'].map(tab => (
+                                {['story', 'chapters', 'characters', 'journey', 'themes'].map(tab => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
@@ -359,6 +362,21 @@
                             </div>
                         </div>
                     )}
+
+                    {/* Chapters Section */}
+                    {activeTab === 'chapters' && (
+                        <div className="max-w-6xl mx-auto px-6 py-20">
+                            <h2 className="heading-font text-5xl font-bold text-amber-100 mb-4 text-center">
+                                Chapter Previews
+                            </h2>
+                            <p className="text-amber-300 text-center mb-10">
+                                Early draft excerpts. Content may change before final release.
+                            </p>
+
+                            {/* Chapters List + Reader */}
+                            <ChaptersViewer />
+                        </div>
+                    )}
                     
                     {/* Journey Section */}
                     {activeTab === 'journey' && (
@@ -523,6 +541,90 @@
             );
         };
         
+        // Simple component to render chapter previews from /chapters/*.md
+        const ChaptersViewer = () => {
+            const [selected, setSelected] = useState(0);
+            const [content, setContent] = useState('');
+            const [loading, setLoading] = useState(false);
+            const [error, setError] = useState('');
+
+            const chapters = [
+                { id: 1, title: 'Chapter 1 — Homecoming Fog', file: 'chapter-1-homecoming-fog.md', blurb: 'Ethan returns to Maple Hollow through the mist.' },
+                { id: 2, title: 'Chapter 2 — Alpha at the Bar', file: 'chapter-2-alpha-at-the-bar.md', blurb: 'Old wounds resurface under warm tavern lights.' },
+                // Add more entries here and drop corresponding .md files into /docs/chapters/
+            ];
+
+            useEffect(() => {
+                const load = async () => {
+                    setLoading(true); setError(''); setContent('');
+                    try {
+                        const f = chapters[selected]?.file;
+                        const res = await fetch(`chapters/${f}`);
+                        if (!res.ok) throw new Error(`Failed to load ${f} (${res.status})`);
+                        const md = await res.text();
+                        const html = DOMPurify.sanitize(marked.parse(md));
+                        setContent(html);
+                    } catch (e) {
+                        setError(e.message || 'Failed to load preview.');
+                    } finally {
+                        setLoading(false);
+                    }
+                };
+                load();
+            }, [selected]);
+
+            return (
+                <div className="grid md:grid-cols-3 gap-8">
+                    {/* List */}
+                    <div className="md:col-span-1 bg-zinc-900/60 border border-amber-800/30 rounded-lg p-4">
+                        <h3 className="heading-font text-2xl text-amber-200 mb-4">Chapters</h3>
+                        <ul className="space-y-2">
+                            {chapters.map((c, idx) => (
+                                <li key={c.id}>
+                                    <button
+                                        onClick={() => setSelected(idx)}
+                                        className={`w-full text-left p-3 rounded border transition-all ${
+                                            selected === idx
+                                                ? 'bg-amber-900/50 border-amber-600 text-amber-100'
+                                                : 'bg-zinc-900/40 border-amber-800/30 text-amber-300 hover:bg-amber-900/30'
+                                        }`}
+                                    >
+                                        <p className="font-semibold">{c.title}</p>
+                                        <p className="text-sm opacity-80">{c.blurb}</p>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Reader */}
+                    <div className="md:col-span-2">
+                        <div className="bg-zinc-900/60 border border-amber-800/30 rounded-lg p-6 min-h-[24rem]">
+                            {loading && (
+                                <p className="text-amber-300">Loading preview…</p>
+                            )}
+                            {error && (
+                                <p className="text-red-300">{error}</p>
+                            )}
+                            {!loading && !error && (
+                                <article className="prose prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
+                            )}
+                        </div>
+                        <div className="mt-4 text-right">
+                            <a
+                                href={`chapters/${chapters[selected]?.file}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-amber-300 hover:text-amber-100 underline"
+                            >
+                                Open raw markdown
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
         ReactDOM.render(<MoonlightPromo />, document.getElementById('root'));
     </script>
 </body>
