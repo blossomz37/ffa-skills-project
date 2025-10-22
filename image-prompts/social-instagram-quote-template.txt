@@ -1,7 +1,0 @@
-Title: Social Template — Instagram Quote (Square)
-
-Prompt: clean atmospheric square background for quote, misty town street at night, soft lantern pools of light, subtle maple leaves bokeh, warm intimate color grade, generous center negative space for text, faint flannel texture overlay
-
-Negative: actual text, logos, watermarks, busy foreground, neon, harsh HDR, low-res
-
-Params: aspect=1:1; style=cinematic atmospheric; palette=amber gold, burnt orange, night-sky blue, silver moonlight; lighting=soft lantern + moon ambience; composition=center negative space with vignette; medium=social background

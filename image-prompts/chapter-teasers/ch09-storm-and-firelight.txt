@@ -1,7 +1,0 @@
-Title: Chapter Teaser — Ch 9: Shelter and Sparks (Firelight + Storm)
-
-Prompt: storm clouds rolling over Maple Hollow, rain-speckled windows, warm firelight spilling from a doorway, two figures sharing shelter in the glow, lantern light reflecting on wet pavement, maple leaves stuck to the ground, tension-and-comfort mood, subtle ward ribbons fluttering in wind
-
-Negative: text, logos, watermarks, lightning bolts cliché, neon, harsh HDR, debris clutter, low-res
-
-Params: aspect=4:5 portrait or 16:9 landscape; style=cinematic atmospheric; palette=amber gold firelight, night-sky blue storm, deep forest green; lighting=contrast of warm interior glow vs cool storm light; composition=doorway as focal point; medium=chapter teaser art

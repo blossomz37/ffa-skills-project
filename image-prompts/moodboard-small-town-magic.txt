@@ -1,7 +1,0 @@
-Title: Mood Board — Small Town Magic
-
-Prompt: curated collage board of small-town magical realism, vintage lanterns, ward ribbons tied to fences, community gathering snapshots, moonlit streets with mist, town square lights, cozy interiors, handwritten maps, subtle sparkles like dust motes, welcoming atmosphere
-
-Negative: logos, watermarks, neon signs, sci‑fi gadgets, clutter, harsh HDR, low-res
-
-Params: aspect=4:3; style=photographic collage with painterly accents; palette=amber gold, copper lantern glow, night-sky blue, silver moonlight; lighting=soft ambient with lantern highlights; composition=balanced collage with margins; medium=mood board

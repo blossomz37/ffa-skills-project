@@ -1,11 +1,3 @@
----
-chapter: 10
-title: "Words on Fire"
-status: draft_v1
-word_count: 6872
-pov: Caleb Hawthorne
----
-
 # Chapter 10 – Words on Fire
 
 The Gazette smelled like wet paper and regret.

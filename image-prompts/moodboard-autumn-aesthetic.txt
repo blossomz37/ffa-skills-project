@@ -1,7 +1,0 @@
-Title: Mood Board — Autumn Aesthetic
-
-Prompt: flat-lay mood board, cozy autumn palette, cider mugs, flannel swatches, glowing firelight, pumpkins, maple leaves, hand-written notes, soft textile textures, warm rustic wood background, harmonious grid arrangement, inviting and nostalgic vibe
-
-Negative: text blocks, watermarks, logos, clutter, neon colors, harsh flash, messy layout, low-res
-
-Params: aspect=4:3 or 1:1; style=photographic still-life, soft cinematic grade; palette=burnt orange, amber gold, russet brown, deep forest green; lighting=warm softbox emulating firelight; composition=3x3 grid or neat collage; medium=styled flat-lay

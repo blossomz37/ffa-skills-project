@@ -1,7 +1,0 @@
-Title: Cover Option 1 — Intimate Silhouette
-
-Prompt: two young men, close but not touching, backlit by a luminous full moon, maple hollow small-town lights below, soft fog swirling, autumn leaves drifting, subtle ward ribbons on a nearby railing, warm-to-cool gradient from amber gold to night-sky blue, silver moonlight rim light on silhouettes, lantern glow accents, cinematic painterly realism, tender slow-burn romance mood, flannel texture hints, spacious top area for title typography
-
-Negative: text, watermark, logo, extra limbs, deformed anatomy, gore, explicit content, neon cyberpunk, sci‑fi tech, hard shadows, over-saturation, harsh HDR, blurry, low-res, posterized
-
-Params: aspect=2:3 vertical; style=cinematic, painterly realism, soft bokeh; palette=burnt orange, amber gold, deep forest green, night-sky blue, silver moonlight; lighting=moon rim light + lantern fill through mist; camera=85mm portrait, shallow depth of field; composition=rule of thirds, figures foreground, town and mist mid/background; medium=illustrated cover art

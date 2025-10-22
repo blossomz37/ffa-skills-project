@@ -1,7 +1,0 @@
-Title: Quote Graphic — Misty Town + Intimacy
-
-Prompt: misty small-town at night with soft lanterns and moonlight, gentle fog over quiet street, warm intimate color treatment, subtle maple leaves and flannel texture overlay, large empty negative space for typography centered, romantic and hopeful mood
-
-Negative: actual text, watermark, logo, cars, modern signage, neon, harsh HDR, cluttered foreground, low-res
-
-Params: aspect=1:1 square (Instagram) or 4:5; style=cinematic atmospheric, painterly realism, soft grain; palette=amber gold, burnt orange, night-sky blue, silver moonlight; lighting=lantern pools + moon ambience; composition=clean center area for quote; medium=social graphic background

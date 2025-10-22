@@ -1,7 +1,0 @@
-Title: Social Template — Pinterest Scene (Tall)
-
-Prompt: tall cozy autumn town scene, lantern-lit bridge with ward ribbons, gentle fog, maple leaves drifting, small figures strolling, warm inviting colors, subtle space for overlay text near top third
-
-Negative: logos, watermarks, neon, harsh HDR, cars, cluttered foreground, low-res
-
-Params: aspect=2:3 portrait; style=storybook cinematic; palette=burnt orange, amber gold, deep forest green, night-sky blue; lighting=moonlight ambience + lantern highlights; composition=leading lines upward, negative space top third; medium=social background
